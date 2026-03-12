@@ -142,17 +142,25 @@ PROMPT;
 
                 } else {
                     Log::error('DashScope did not return the expected choices structure.', ['data' => $data]);
+                    // TEMPORARY DEBUG: Bato sa frontend kung iba ang format
+                    return response()->json(['error' => 'Code Logic Error: Unexpected DashScope response format.'], 500);
                 }
             } else {
-                // Log error if DashScope status is not 200 OK
                 Log::error('DashScope API Error', ['status' => $response->status(), 'response' => $response->body()]);
+                
+                // TEMPORARY DEBUG: Ipapabato natin sa frontend ang totoong sagot ni DashScope
+                return response()->json([
+                    'error' => 'DASHSCOPE REJECTED: Status ' . $response->status() . ' - ' . $response->body()
+                ], 500);
             }
-
-            return response()->json(['error' => 'Failed to generate response. Please try again later.'], 500);
 
         } catch (\Exception $e) {
             Log::error('Chatbot Exception', ['message' => $e->getMessage(), 'line' => $e->getLine()]);
-            return response()->json(['error' => 'An unexpected error occurred.'], 500);
+            
+            // TEMPORARY DEBUG: Ipapabato sa frontend kung nag-crash ang Laravel server mo
+            return response()->json([
+                'error' => 'LARAVEL CRASHED: ' . $e->getMessage() . ' (Line ' . $e->getLine() . ')'
+            ], 500);
         }
     }
 }
