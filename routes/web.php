@@ -5,11 +5,11 @@ use App\Http\Controllers\ChatbotController;
 use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('portfolio');
 });
 
-Route::get('/portfolio', function () {
-    return view('portfolio');
+Route::get('/laravel', function () {
+    return view('welcome');
 });
 
 Route::post('/api/chat', [ChatbotController::class, 'chat']);
