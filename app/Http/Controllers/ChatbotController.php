@@ -77,10 +77,8 @@ PROMPT;
         $messages[] = ['role' => 'user', 'content' => $userMessage];
 
         try {
-            // $rawKey = config('services.dashscope.key') ?: env('DASHSCOPE_API_KEY');
-            // $apiKey = preg_replace('/[^a-zA-Z0-9-]/', '', $rawKey);
-
-            $apiKey = 'sk-d363d6f1c4e9432bb0b6c00d463c76fc';
+            $rawKey = config('services.dashscope.key') ?: env('DASHSCOPE_API_KEY');
+            $apiKey = preg_replace('/[^a-zA-Z0-9-]/', '', $rawKey);
             
             if (!$apiKey) {
                 Log::error('API KEY MISSING IN RENDER ENVIRONMENT VARIABLES');
@@ -92,7 +90,7 @@ PROMPT;
             $response = Http::withHeaders([
                 'Authorization' => "Bearer {$apiKey}",
                 'Content-Type' => 'application/json',
-            ])->timeout(30)->post('https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions', [
+            ])->timeout(30)->post('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', [
                 'model' => 'qwen3.5-plus',
                 'messages' => $messages,
             ]);
