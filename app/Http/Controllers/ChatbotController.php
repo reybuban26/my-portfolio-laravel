@@ -77,12 +77,10 @@ PROMPT;
         $messages[] = ['role' => 'user', 'content' => $userMessage];
 
         try {
-            $rawKey = config('services.dashscope.key') ?: env('DASHSCOPE_API_KEY');
-            
-            // ANG BULLETPROOF SANITIZER:
-            // Tatanggalin nito KAHIT ANONG invisible space, quote, o weird character.
-            // Letters, numbers, at dash (-) lang ang matitira.
-            $apiKey = preg_replace('/[^a-zA-Z0-9-]/', '', $rawKey);
+            // $rawKey = config('services.dashscope.key') ?: env('DASHSCOPE_API_KEY');
+            // $apiKey = preg_replace('/[^a-zA-Z0-9-]/', '', $rawKey);
+
+            $apiKey = 'sk-d363d6f1c4e9432bb0b6c00d463c76fc';
             
             if (!$apiKey) {
                 Log::error('API KEY MISSING IN RENDER ENVIRONMENT VARIABLES');
@@ -99,17 +97,15 @@ PROMPT;
                 'messages' => $messages,
             ]);
 
-            Log::info('DashScope Status: ' . $response->status());
-
             if ($response->successful()) {
-                // ... (Hayaan mo lang yung existing na code mo rito para sa success at ElevenLabs)
                 $data = $response->json();
                 
                 if (isset($data['choices'][0]['message']['content'])) {
                     $reply = $data['choices'][0]['message']['content'];
 
                     $rawElevenKey = config('services.elevenlabs.key') ?: env('ELEVENLABS_API_KEY');
-                    $elevenLabsKey = preg_replace('/[^a-zA-Z0-9-]/', '', $rawElevenKey);
+                    // Linisin din natin ang ElevenLabs key para sure
+                    $elevenLabsKey = trim(str_replace(['"', "'"], '', $rawElevenKey));
                     $audioBase64 = null;
 
                     if ($elevenLabsKey) {
@@ -142,13 +138,9 @@ PROMPT;
                     return response()->json(['error' => 'Code Logic Error: Unexpected DashScope response format.'], 500);
                 }
             } else {
-                // ANG TRUTH TELLER:
-                $keyLength = strlen($apiKey);
-                $first4 = substr($apiKey, 0, 4);
-                $last4 = substr($apiKey, -4);
-                
+                // Binabalik pa rin natin yung error para kita mo sa website just in case
                 return response()->json([
-                    'error' => "DASHSCOPE 401 REJECT. Render is using Key: {$first4}...{$last4} (Total Length: {$keyLength}). Alibaba says: " . $response->body()
+                    'error' => 'DASHSCOPE REJECTED: Status ' . $response->status() . ' - ' . $response->body()
                 ], 500);
             }
 
