@@ -10,6 +10,8 @@ class ChatbotController extends Controller
 {
     public function chat(Request $request)
     {
+        Log::info('--- Chatbot Request Started on Render ---');
+        
         $request->validate([
             'message' => 'required|string',
             'history' => 'nullable|array',
@@ -79,19 +81,25 @@ PROMPT;
 
         try {
             // DashScope v1 endpoint via Aliyun
-            $apiKey = env('DASHSCOPE_API_KEY');
+            $apiKey = config('services.dashscope.key') ?: env('DASHSCOPE_API_KEY');
             
             if (!$apiKey) {
+                Log::error('API KEY MISSING IN RENDER ENVIRONMENT VARIABLES');
                 return response()->json(['error' => 'API Key is missing.'], 500);
             }
 
+            Log::info('Sending request to DashScope...');
+
+            // NOTE: Nilagyan ko ng timeout(30) para hindi ma-cut ni Render
             $response = Http::withHeaders([
                 'Authorization' => "Bearer {$apiKey}",
                 'Content-Type' => 'application/json',
-            ])->post('https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions', [
+            ])->timeout(30)->post('https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions', [
                 'model' => 'qwen3.5-plus',
                 'messages' => $messages,
             ]);
+
+            Log::info('DashScope Status: ' . $response->status());
 
             if ($response->successful()) {
                 $data = $response->json();
@@ -101,15 +109,16 @@ PROMPT;
                     $reply = $data['choices'][0]['message']['content'];
 
                     // ElevenLabs Audio Generation
-                    $elevenLabsKey = env('ELEVENLABS_API_KEY');
+                    $elevenLabsKey = config('services.elevenlabs.key') ?: env('ELEVENLABS_API_KEY');
                     $audioBase64 = null;
 
                     if ($elevenLabsKey) {
                         try {
+                            // NOTE: May timeout(30) din dito
                             $elevenResponse = Http::withHeaders([
                                 'xi-api-key' => $elevenLabsKey,
                                 'Content-Type' => 'application/json',
-                            ])->post("https://api.elevenlabs.io/v1/text-to-speech/hpp4J3VqNfWAUOO0d1Us?output_format=mp3_44100_128", [
+                            ])->timeout(30)->post("https://api.elevenlabs.io/v1/text-to-speech/hpp4J3VqNfWAUOO0d1Us?output_format=mp3_44100_128", [
                                 'text' => $reply,
                                 'model_id' => 'eleven_multilingual_v2',
                             ]);
@@ -123,20 +132,26 @@ PROMPT;
                             Log::error('ElevenLabs Exception', ['message' => $e->getMessage()]);
                         }
                     }
-
+                    
+                    // SUCCESS RETURN
+                    Log::info('Chatbot request completed successfully.');
                     return response()->json([
-                        'reply' => $reply,
+                        'reply' => $reply, 
                         'audio' => $audioBase64
                     ]);
+
+                } else {
+                    Log::error('DashScope did not return the expected choices structure.', ['data' => $data]);
                 }
+            } else {
+                // Log error if DashScope status is not 200 OK
+                Log::error('DashScope API Error', ['status' => $response->status(), 'response' => $response->body()]);
             }
 
-            // Log error if something went wrong
-            Log::error('DashScope API Error', ['response' => $response->body()]);
             return response()->json(['error' => 'Failed to generate response. Please try again later.'], 500);
 
         } catch (\Exception $e) {
-            Log::error('Chatbot Exception', ['message' => $e->getMessage()]);
+            Log::error('Chatbot Exception', ['message' => $e->getMessage(), 'line' => $e->getLine()]);
             return response()->json(['error' => 'An unexpected error occurred.'], 500);
         }
     }
