@@ -64,24 +64,23 @@ Contact:
 -Gmail: reybuban11@gmail.com, r.buban@synermaxx.com
 PROMPT;
 
-        // Build the messages array for Qwen
         $messages = [
             ['role' => 'system', 'content' => $systemPrompt]
         ];
 
-        // Append conversation history
         foreach ($history as $msg) {
             if (isset($msg['role']) && isset($msg['content'])) {
                 $messages[] = ['role' => $msg['role'], 'content' => $msg['content']];
             }
         }
 
-        // Append the new user message
         $messages[] = ['role' => 'user', 'content' => $userMessage];
 
         try {
-            // DashScope v1 endpoint via Aliyun
-            $apiKey = config('services.dashscope.key') ?: env('DASHSCOPE_API_KEY');
+            $rawKey = config('services.dashscope.key') ?: env('DASHSCOPE_API_KEY');
+            
+            // ANG FIX: Tanggalin ang spaces at quotes kung sakaling nasama sa Render
+            $apiKey = trim(str_replace(['"', "'"], '', $rawKey));
             
             if (!$apiKey) {
                 Log::error('API KEY MISSING IN RENDER ENVIRONMENT VARIABLES');
@@ -90,7 +89,6 @@ PROMPT;
 
             Log::info('Sending request to DashScope...');
 
-            // NOTE: Nilagyan ko ng timeout(30) para hindi ma-cut ni Render
             $response = Http::withHeaders([
                 'Authorization' => "Bearer {$apiKey}",
                 'Content-Type' => 'application/json',
@@ -99,22 +97,19 @@ PROMPT;
                 'messages' => $messages,
             ]);
 
-            Log::info('DashScope Status: ' . $response->status());
-
             if ($response->successful()) {
                 $data = $response->json();
                 
-                // OpenAI compatible format
                 if (isset($data['choices'][0]['message']['content'])) {
                     $reply = $data['choices'][0]['message']['content'];
 
-                    // ElevenLabs Audio Generation
-                    $elevenLabsKey = config('services.elevenlabs.key') ?: env('ELEVENLABS_API_KEY');
+                    $rawElevenKey = config('services.elevenlabs.key') ?: env('ELEVENLABS_API_KEY');
+                    // Linisin din natin ang ElevenLabs key para sure
+                    $elevenLabsKey = trim(str_replace(['"', "'"], '', $rawElevenKey));
                     $audioBase64 = null;
 
                     if ($elevenLabsKey) {
                         try {
-                            // NOTE: May timeout(30) din dito
                             $elevenResponse = Http::withHeaders([
                                 'xi-api-key' => $elevenLabsKey,
                                 'Content-Type' => 'application/json',
@@ -133,7 +128,6 @@ PROMPT;
                         }
                     }
                     
-                    // SUCCESS RETURN
                     Log::info('Chatbot request completed successfully.');
                     return response()->json([
                         'reply' => $reply, 
@@ -141,23 +135,16 @@ PROMPT;
                     ]);
 
                 } else {
-                    Log::error('DashScope did not return the expected choices structure.', ['data' => $data]);
-                    // TEMPORARY DEBUG: Bato sa frontend kung iba ang format
                     return response()->json(['error' => 'Code Logic Error: Unexpected DashScope response format.'], 500);
                 }
             } else {
-                Log::error('DashScope API Error', ['status' => $response->status(), 'response' => $response->body()]);
-                
-                // TEMPORARY DEBUG: Ipapabato natin sa frontend ang totoong sagot ni DashScope
+                // Binabalik pa rin natin yung error para kita mo sa website just in case
                 return response()->json([
                     'error' => 'DASHSCOPE REJECTED: Status ' . $response->status() . ' - ' . $response->body()
                 ], 500);
             }
 
         } catch (\Exception $e) {
-            Log::error('Chatbot Exception', ['message' => $e->getMessage(), 'line' => $e->getLine()]);
-            
-            // TEMPORARY DEBUG: Ipapabato sa frontend kung nag-crash ang Laravel server mo
             return response()->json([
                 'error' => 'LARAVEL CRASHED: ' . $e->getMessage() . ' (Line ' . $e->getLine() . ')'
             ], 500);
