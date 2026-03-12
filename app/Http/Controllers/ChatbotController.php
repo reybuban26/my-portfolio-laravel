@@ -90,7 +90,7 @@ PROMPT;
             $response = Http::withHeaders([
                 'Authorization' => "Bearer {$apiKey}",
                 'Content-Type' => 'application/json',
-            ])->timeout(30)->post('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', [
+            ])->timeout(30)->post('https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions', [
                 'model' => 'qwen3.5-plus',
                 'messages' => $messages,
             ]);
