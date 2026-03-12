@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'dashscope' => [
+        'key' => env('DASHSCOPE_API_KEY'),
+    ],
+
+    'elevenlabs' => [
+        'key' => env('ELEVENLABS_API_KEY'),
+    ],
+
 ];
