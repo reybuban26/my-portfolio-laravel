@@ -10,7 +10,7 @@ class ChatbotController extends Controller
 {
     public function chat(Request $request)
     {
-        Log::info('--- Chatbot Request Started on Render ---');
+        Log::info('--- Chatbot Request Started on Render (Using GROQ) ---');
         
         $request->validate([
             'message' => 'required|string',
@@ -77,21 +77,23 @@ PROMPT;
         $messages[] = ['role' => 'user', 'content' => $userMessage];
 
         try {
-            $rawKey = config('services.dashscope.key') ?: env('DASHSCOPE_API_KEY');
-            $apiKey = preg_replace('/[^a-zA-Z0-9-]/', '', $rawKey);
+            // Kinukuha na natin ngayon ang GROQ API KEY
+            $rawKey = env('GROQ_API_KEY');
+            $apiKey = preg_replace('/[^a-zA-Z0-9-_]/', '', $rawKey);
             
             if (!$apiKey) {
                 Log::error('API KEY MISSING IN RENDER ENVIRONMENT VARIABLES');
-                return response()->json(['error' => 'API Key is missing.'], 500);
+                return response()->json(['error' => 'Groq API Key is missing.'], 500);
             }
 
-            Log::info('Sending request to DashScope...');
+            Log::info('Sending request to Groq...');
 
+            // Bagong URL at Model para sa Groq
             $response = Http::withHeaders([
                 'Authorization' => "Bearer {$apiKey}",
                 'Content-Type' => 'application/json',
-            ])->timeout(30)->post('https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions', [
-                'model' => 'qwen3.5-plus',
+            ])->timeout(30)->post('https://api.groq.com/openai/v1/chat/completions', [
+                'model' => 'llama3-70b-8192',
                 'messages' => $messages,
             ]);
 
@@ -101,9 +103,8 @@ PROMPT;
                 if (isset($data['choices'][0]['message']['content'])) {
                     $reply = $data['choices'][0]['message']['content'];
 
-                    $rawElevenKey = config('services.elevenlabs.key') ?: env('ELEVENLABS_API_KEY');
-                    // Linisin din natin ang ElevenLabs key para sure
-                    $elevenLabsKey = trim(str_replace(['"', "'"], '', $rawElevenKey));
+                    $rawElevenKey = env('ELEVENLABS_API_KEY');
+                    $elevenLabsKey = preg_replace('/[^a-zA-Z0-9-_]/', '', $rawElevenKey);
                     $audioBase64 = null;
 
                     if ($elevenLabsKey) {
@@ -126,19 +127,18 @@ PROMPT;
                         }
                     }
                     
-                    Log::info('Chatbot request completed successfully.');
+                    Log::info('Chatbot request completed successfully using Groq.');
                     return response()->json([
                         'reply' => $reply, 
                         'audio' => $audioBase64
                     ]);
 
                 } else {
-                    return response()->json(['error' => 'Code Logic Error: Unexpected DashScope response format.'], 500);
+                    return response()->json(['error' => 'Code Logic Error: Unexpected Groq response format.'], 500);
                 }
             } else {
-                // Binabalik pa rin natin yung error para kita mo sa website just in case
                 return response()->json([
-                    'error' => 'DASHSCOPE REJECTED: Status ' . $response->status() . ' - ' . $response->body()
+                    'error' => 'GROQ REJECTED: Status ' . $response->status() . ' - ' . $response->body()
                 ], 500);
             }
 
