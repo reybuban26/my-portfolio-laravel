@@ -10,8 +10,6 @@ class ChatbotController extends Controller
 {
     public function chat(Request $request)
     {
-        Log::info('--- Chatbot Request Started on Render (Using GROQ) ---');
-        
         $request->validate([
             'message' => 'required|string',
             'history' => 'nullable|array',
@@ -20,7 +18,6 @@ class ChatbotController extends Controller
         $userMessage = $request->input('message');
         $history = $request->input('history', []);
 
-        // Define the System Prompt about Rey Buban
         $systemPrompt = <<<PROMPT
 You are the official AI Assistant for Rey Buban's Portfolio website. 
 Your job is to answer questions about Rey's skills, experience, and projects professionally, concisely, and with a friendly tone.
@@ -77,23 +74,18 @@ PROMPT;
         $messages[] = ['role' => 'user', 'content' => $userMessage];
 
         try {
-            // Kinukuha na natin ngayon ang GROQ API KEY
-            $rawKey = env('GROQ_API_KEY');
-            $apiKey = preg_replace('/[^a-zA-Z0-9-_]/', '', $rawKey);
+            // Note: Gamit mo rito ang DashScope o kaya Groq kung lumipat ka.
+            $apiKey = env('DASHSCOPE_API_KEY'); 
             
             if (!$apiKey) {
-                Log::error('API KEY MISSING IN RENDER ENVIRONMENT VARIABLES');
-                return response()->json(['error' => 'Groq API Key is missing.'], 500);
+                return response()->json(['error' => 'API Key is missing.'], 500);
             }
 
-            Log::info('Sending request to Groq...');
-
-            // Bagong URL at Model para sa Groq
             $response = Http::withHeaders([
                 'Authorization' => "Bearer {$apiKey}",
                 'Content-Type' => 'application/json',
-            ])->timeout(30)->post('https://api.groq.com/openai/v1/chat/completions', [
-                'model' => 'llama-3.1-8b-instant',
+            ])->post('https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions', [
+                'model' => 'qwen3.5-plus',
                 'messages' => $messages,
             ]);
 
@@ -103,49 +95,19 @@ PROMPT;
                 if (isset($data['choices'][0]['message']['content'])) {
                     $reply = $data['choices'][0]['message']['content'];
 
-                    $rawElevenKey = env('ELEVENLABS_API_KEY');
-                    $elevenLabsKey = preg_replace('/[^a-zA-Z0-9-_]/', '', $rawElevenKey);
-                    $audioBase64 = null;
-
-                    if ($elevenLabsKey) {
-                        try {
-                            $elevenResponse = Http::withHeaders([
-                                'xi-api-key' => $elevenLabsKey,
-                                'Content-Type' => 'application/json',
-                            ])->timeout(30)->post("https://api.elevenlabs.io/v1/text-to-speech/hpp4J3VqNfWAUOO0d1Us?output_format=mp3_44100_128", [
-                                'text' => $reply,
-                                'model_id' => 'eleven_multilingual_v2',
-                            ]);
-                            
-                            if ($elevenResponse->successful()) {
-                                $audioBase64 = base64_encode($elevenResponse->body());
-                            } else {
-                                Log::error('ElevenLabs API Error', ['response' => $elevenResponse->body()]);
-                            }
-                        } catch (\Exception $e) {
-                            Log::error('ElevenLabs Exception', ['message' => $e->getMessage()]);
-                        }
-                    }
-                    
-                    Log::info('Chatbot request completed successfully using Groq.');
+                    // Tinanggal na natin ang ElevenLabs dito. Direct reply na lang!
                     return response()->json([
-                        'reply' => $reply, 
-                        'audio' => $audioBase64
+                        'reply' => $reply
                     ]);
-
-                } else {
-                    return response()->json(['error' => 'Code Logic Error: Unexpected Groq response format.'], 500);
                 }
-            } else {
-                return response()->json([
-                    'error' => 'GROQ REJECTED: Status ' . $response->status() . ' - ' . $response->body()
-                ], 500);
             }
 
+            Log::error('API Error', ['response' => $response->body()]);
+            return response()->json(['error' => 'Failed to generate response. Please try again later.'], 500);
+
         } catch (\Exception $e) {
-            return response()->json([
-                'error' => 'LARAVEL CRASHED: ' . $e->getMessage() . ' (Line ' . $e->getLine() . ')'
-            ], 500);
+            Log::error('Chatbot Exception', ['message' => $e->getMessage()]);
+            return response()->json(['error' => 'An unexpected error occurred.'], 500);
         }
     }
 }
