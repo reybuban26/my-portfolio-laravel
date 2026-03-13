@@ -2003,7 +2003,7 @@
                         
                         // Subukang maghanap ng magandang boses sa computer/phone ng user
                         const voices = window.speechSynthesis.getVoices();
-                        const preferredVoice = voices.find(v => v.name.includes('Female') || v.name.includes('Google UK English Female') || v.name.includes('Samantha'));
+                        const preferredVoice = voices.find(v => v.name === 'Google UK English Male' || v.name.includes('UK English Male') || v.name.includes('Daniel'));
                         if (preferredVoice) {
                             utterance.voice = preferredVoice;
                         }
