@@ -1990,9 +1990,25 @@
                 if (response.ok && data.reply) {
                     appendMessage(data.reply, false);
                     
-                    if (data.audio) {
-                        const audio = new Audio("data:audio/mp3;base64," + data.audio);
-                        audio.play().catch(e => console.error("Audio playback failed:", e));
+                    if ('speechSynthesis' in window) {
+                        // Patigilin muna kung may nagsasalita pa
+                        window.speechSynthesis.cancel();
+                        
+                        // Linisin ang text (Tanggalin ang mga * asterisk para hindi basahin ng bot)
+                        const cleanText = data.reply.replace(/\*/g, '').replace(/_/g, '');
+                        
+                        const utterance = new SpeechSynthesisUtterance(cleanText);
+                        utterance.rate = 1.0;  // Bilis ng pagsasalita (1 = normal)
+                        utterance.pitch = 1.1; // Taas ng boses (1.1 = medyo AI vibe)
+                        
+                        // Subukang maghanap ng magandang boses sa computer/phone ng user
+                        const voices = window.speechSynthesis.getVoices();
+                        const preferredVoice = voices.find(v => v.name.includes('Female') || v.name.includes('Google UK English Female') || v.name.includes('Samantha'));
+                        if (preferredVoice) {
+                            utterance.voice = preferredVoice;
+                        }
+                        
+                        window.speechSynthesis.speak(utterance);
                     }
                     
                     // Update internal history array so Qwen has context
