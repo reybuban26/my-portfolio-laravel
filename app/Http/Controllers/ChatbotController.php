@@ -74,8 +74,7 @@ PROMPT;
         $messages[] = ['role' => 'user', 'content' => $userMessage];
 
         try {
-            // Note: Gamit mo rito ang DashScope o kaya Groq kung lumipat ka.
-            $apiKey = env('DASHSCOPE_API_KEY'); 
+            $apiKey = env('GROQ_API_KEY'); 
             
             if (!$apiKey) {
                 return response()->json(['error' => 'API Key is missing.'], 500);
@@ -84,8 +83,8 @@ PROMPT;
             $response = Http::withHeaders([
                 'Authorization' => "Bearer {$apiKey}",
                 'Content-Type' => 'application/json',
-            ])->post('https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions', [
-                'model' => 'qwen3.5-plus',
+            ])->post('https://api.groq.com/openai/v1/chat/completions', [
+                'model' => 'llama-3.1-8b-instant',
                 'messages' => $messages,
             ]);
 
@@ -94,8 +93,6 @@ PROMPT;
                 
                 if (isset($data['choices'][0]['message']['content'])) {
                     $reply = $data['choices'][0]['message']['content'];
-
-                    // Tinanggal na natin ang ElevenLabs dito. Direct reply na lang!
                     return response()->json([
                         'reply' => $reply
                     ]);
