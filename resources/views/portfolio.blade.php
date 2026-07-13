@@ -147,8 +147,8 @@
         }
 
         @keyframes scan {
-            0%   { transform: translateY(-100%); }
-            100% { transform: translateY(100vh); }
+            0%   { top: -3px; }
+            100% { top: 100%; }
         }
 
         @keyframes float-dot {
@@ -469,16 +469,16 @@
         }
 
         /* Moving scan line over the photo */
-        .hero-right::after {
+        .hero-photo-area::after {
             content: '';
             position: absolute;
             left: 0; right: 0;
             height: 3px;
             background: linear-gradient(to right, transparent, var(--neon), transparent);
-            opacity: 0.35;
-            animation: scan 5s linear infinite;
+            opacity: 0.45;
+            animation: scan 4s linear infinite;
             pointer-events: none;
-            z-index: 3;
+            z-index: 4;
         }
 
         /* Corner brackets */
