@@ -1948,53 +1948,6 @@
                 </div>
             </a>
 
-            <!-- Project 7: Enhanced Chatbot with WebRTC (app110 login) -->
-            <a href="https://app141.maxxweb.biz/login" target="_blank" rel="noopener"
-               class="proj-card" id="proj-webrtc-110"
-               aria-label="Enhanced AI Chatbot with WebRTC – App 110">
-                <div class="proj-thumb">
-                    <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="480" height="300" fill="#0e0a1a"/>
-                        <circle cx="240" cy="150" r="130" fill="rgba(103,58,183,0.12)"/>
-                        <rect x="30" y="50" width="240" height="48" rx="14" fill="#6a1b9a" opacity="0.9"/>
-                        <rect x="42" y="65" width="140" height="10" rx="5" fill="rgba(255,255,255,0.75)"/>
-                        <rect x="42" y="79" width="90" height="8" rx="4" fill="rgba(255,255,255,0.45)"/>
-                        <polygon points="30,82 14,98 30,98" fill="#6a1b9a" opacity="0.9"/>
-                        <rect x="210" y="120" width="240" height="48" rx="14" fill="#1a0d2e"/>
-                        <rect x="222" y="135" width="130" height="10" rx="5" fill="rgba(255,255,255,0.3)"/>
-                        <rect x="222" y="149" width="85" height="8" rx="4" fill="rgba(255,255,255,0.18)"/>
-                        <polygon points="450,152 466,168 450,168" fill="#1a0d2e"/>
-                        <rect x="30" y="190" width="200" height="48" rx="14" fill="#6a1b9a" opacity="0.75"/>
-                        <rect x="42" y="205" width="120" height="10" rx="5" fill="rgba(255,255,255,0.75)"/>
-                        <rect x="42" y="219" width="75" height="8" rx="4" fill="rgba(255,255,255,0.45)"/>
-                        <polygon points="30,222 14,238 30,238" fill="#6a1b9a" opacity="0.75"/>
-                        <!-- Bot icon -->
-                        <rect x="355" y="55" width="100" height="100" rx="20" fill="rgba(103,58,183,0.2)" stroke="rgba(103,58,183,0.45)" stroke-width="1.5"/>
-                        <rect x="374" y="78" width="62" height="42" rx="9" fill="rgba(103,58,183,0.45)"/>
-                        <circle cx="390" cy="97" r="8" fill="#ce93d8"/>
-                        <circle cx="420" cy="97" r="8" fill="#ce93d8"/>
-                        <rect x="385" y="109" width="30" height="5" rx="2" fill="rgba(255,255,255,0.5)"/>
-                        <rect x="399" y="72" width="12" height="8" rx="4" fill="rgba(103,58,183,0.6)"/>
-                        <!-- WebRTC waves -->
-                        <path d="M350 96 Q344 78 350 60" stroke="#ce93d8" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
-                        <path d="M343 101 Q334 78 343 55" stroke="#ce93d8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.35"/>
-                        <path d="M460 96 Q466 78 460 60" stroke="#ce93d8" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
-                        <path d="M467 101 Q476 78 467 55" stroke="#ce93d8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.35"/>
-                    </svg>
-                </div>
-                <div class="proj-info">
-                    <span class="proj-badge">AI + WebRTC</span>
-                    <span class="proj-name">Enhanced AI Chat · WebRTC</span>
-                    <span class="proj-link">
-                        View Project
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M7 17L17 7M17 7H7M17 7v10"/>
-                        </svg>
-                    </span>
-                </div>
-            </a>
-
         </div>
     </section>
 
@@ -2324,9 +2277,25 @@
                 if (response.ok && data.reply) {
                     appendMessage(data.reply, false);
                     
-                    if (data.audio) {
-                        const audio = new Audio("data:audio/mp3;base64," + data.audio);
-                        audio.play().catch(e => console.error("Audio playback failed:", e));
+                    if ('speechSynthesis' in window) {
+                        // Patigilin muna kung may nagsasalita pa
+                        window.speechSynthesis.cancel();
+                        
+                        // Linisin ang text (Tanggalin ang mga * asterisk para hindi basahin ng bot)
+                        const cleanText = data.reply.replace(/\*/g, '').replace(/_/g, '');
+                        
+                        const utterance = new SpeechSynthesisUtterance(cleanText);
+                        utterance.rate = 1.0;  // Bilis ng pagsasalita (1 = normal)
+                        utterance.pitch = 1.1; // Taas ng boses (1.1 = medyo AI vibe)
+                        
+                        // Subukang maghanap ng magandang boses sa computer/phone ng user
+                        const voices = window.speechSynthesis.getVoices();
+                        const preferredVoice = voices.find(v => v.name === 'Google UK English Male' || v.name.includes('UK English Male') || v.name.includes('Daniel'));
+                        if (preferredVoice) {
+                            utterance.voice = preferredVoice;
+                        }
+                        
+                        window.speechSynthesis.speak(utterance);
                     }
                     
                     // Update internal history array so Qwen has context
