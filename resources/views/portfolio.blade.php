@@ -234,6 +234,10 @@
             position: relative;
         }
 
+        .nav-links a.active {
+            opacity: 1;
+        }
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -322,6 +326,8 @@
             min-height: 100dvh;
             display: grid;
             grid-template-columns: 1fr 1fr;
+            max-width: 1440px;
+            margin: 0 auto;
             position: relative;
             overflow: hidden;
         }
@@ -456,8 +462,10 @@
             position: relative;
             overflow: hidden;
             display: flex;
-            align-items: stretch;
+            align-items: center;
+            justify-content: center;
             z-index: 1;
+            padding: 40px;
         }
 
         /* Moving scan line over the photo */
@@ -487,14 +495,17 @@
         }
 
         .hero-photo-area {
-            width: 100%;
+            width: 85%;
+            max-width: 480px;
+            aspect-ratio: 3 / 4;
             background: var(--bg-deep);
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
             overflow: hidden;
             position: relative;
-            border-left: 1px solid rgba(57,255,20,0.12);
+            border: 1px solid rgba(57,255,20,0.15);
+            border-radius: var(--radius-lg);
+            box-shadow:
+                0 0 40px rgba(57,255,20,0.08),
+                0 20px 60px rgba(0,0,0,0.5);
         }
 
         .hero-portrait {
@@ -503,11 +514,6 @@
             object-position: center top;
             display: block;
             filter: brightness(0.92) contrast(1.08);
-        }
-
-        .hero-photo-area .portrait-svg {
-            width: 100%; height: 100%;
-            object-fit: cover;
         }
 
         /* Photo gradient overlay */
@@ -941,10 +947,16 @@
                 order: 2;
                 padding: 44px 24px 60px;
             }
+            .hero-left::before { display: none; }
             .hero-right {
                 order: 1;
-                height: 55vw;
+                height: auto;
+                padding: 32px 24px;
                 max-height: 420px;
+            }
+            .hero-photo-area {
+                width: 60%;
+                max-width: 280px;
             }
             .hero-name { font-size: 2.2rem; }
             .hero-bio { max-width: 100%; }
@@ -1955,7 +1967,7 @@
          CHATBOT UI
     =================================================== -->
     <button id="chat-btn" aria-label="Open AI Assistant">
-        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" width="42" height="42">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
             <!-- Antenna -->
             <line x1="20" y1="2" x2="20" y2="9" stroke="#39FF14" stroke-width="2" stroke-linecap="round"/>
             <circle cx="20" cy="2" r="2" fill="#39FF14"/>
@@ -2064,11 +2076,11 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    navLinks.forEach(l => l.style.opacity = '0.6');
+                    navLinks.forEach(l => l.classList.remove('active'));
                     const active = document.querySelector(
                         `.nav-links a[href="#${entry.target.id}"]`
                     );
-                    if (active) active.style.opacity = '1';
+                    if (active) active.classList.add('active');
                 }
             });
         }, { threshold: 0.4 });
@@ -2289,10 +2301,15 @@
                         utterance.pitch = 1.1; // Taas ng boses (1.1 = medyo AI vibe)
                         
                         // Subukang maghanap ng magandang boses sa computer/phone ng user
-                        const voices = window.speechSynthesis.getVoices();
-                        const preferredVoice = voices.find(v => v.name === 'Google UK English Male' || v.name.includes('UK English Male') || v.name.includes('Daniel'));
-                        if (preferredVoice) {
-                            utterance.voice = preferredVoice;
+                        function setPreferredVoice() {
+                            const voices = window.speechSynthesis.getVoices();
+                            const preferredVoice = voices.find(v => v.name === 'Google UK English Male' || v.name.includes('UK English Male') || v.name.includes('Daniel'));
+                            if (preferredVoice) utterance.voice = preferredVoice;
+                        }
+                        setPreferredVoice();
+                        // Fallback: some browsers load voices asynchronously
+                        if (window.speechSynthesis.getVoices().length === 0) {
+                            window.speechSynthesis.addEventListener('voiceschanged', setPreferredVoice, { once: true });
                         }
                         
                         window.speechSynthesis.speak(utterance);
