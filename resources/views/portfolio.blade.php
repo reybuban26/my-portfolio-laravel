@@ -2818,20 +2818,33 @@
         /* ── Theme Toggle ── */
         const themeToggle = document.getElementById('theme-toggle');
         const htmlEl = document.documentElement;
+        const navbar = document.querySelector('.navbar');
+
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                htmlEl.setAttribute('data-theme', 'light');
+                themeToggle.checked = true;
+            } else {
+                htmlEl.removeAttribute('data-theme');
+                themeToggle.checked = false;
+            }
+            // Clear inline navbar styles so CSS variables take over immediately
+            navbar.style.boxShadow = '';
+            navbar.style.background = '';
+        }
 
         // Restore saved preference
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
-            htmlEl.setAttribute('data-theme', 'light');
-            themeToggle.checked = true;
+            applyTheme('light');
         }
 
         themeToggle.addEventListener('change', () => {
             if (themeToggle.checked) {
-                htmlEl.setAttribute('data-theme', 'light');
+                applyTheme('light');
                 localStorage.setItem('theme', 'light');
             } else {
-                htmlEl.removeAttribute('data-theme');
+                applyTheme('dark');
                 localStorage.setItem('theme', 'dark');
             }
         });
