@@ -47,6 +47,99 @@
             --ease-smooth:  cubic-bezier(0.4, 0, 0.2, 1);
             --font-display: 'Space Grotesk', system-ui, sans-serif;
             --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+            --nav-bg:       rgba(5,10,5,0.82);
+            --nav-bg-solid: rgba(5,10,5,0.97);
+            --nav-shadow:   0 4px 32px rgba(0,0,0,0.5);
+        }
+
+        /* =========================================================
+           LIGHT THEME
+        ========================================================= */
+        [data-theme="light"] {
+            --bg:           #f5f0fa;
+            --bg-deep:      #eee8f5;
+            --bg-light:     #faf7ff;
+            --bg-card:      #ffffff;
+            --white:        #1a1a2e;
+            --off-white:    #3d3d5c;
+            --muted:        #8a7a9e;
+            --border:       rgba(179,78,255,0.2);
+            --neon:         #8B30D6;
+            --neon-soft:    #a855f7;
+            --neon-dim:     rgba(179,78,255,0.06);
+            --neon-glow:    0 0 8px rgba(179,78,255,0.3), 0 0 20px rgba(179,78,255,0.1);
+            --neon-text-glow: 0 0 6px rgba(179,78,255,0.3);
+            --neon-shadow:  0 4px 24px rgba(179,78,255,0.1);
+            --nav-bg:       rgba(255,255,255,0.92);
+            --nav-bg-solid: rgba(245,240,250,0.97);
+            --nav-shadow:   0 4px 32px rgba(0,0,0,0.08);
+        }
+
+        [data-theme="light"] .navbar {
+            border-color: rgba(179,78,255,0.2);
+            box-shadow: var(--nav-shadow), inset 0 1px 0 rgba(255,255,255,0.9);
+        }
+
+        [data-theme="light"] .nav-logo {
+            border-color: var(--neon);
+            text-shadow: none;
+            box-shadow: 0 0 6px rgba(139,48,214,0.2);
+            animation: none;
+        }
+
+        [data-theme="light"] .nav-links a {
+            color: var(--white);
+            opacity: 0.8;
+        }
+
+        [data-theme="light"] .nav-links a:hover {
+            opacity: 1;
+            color: var(--neon);
+            text-shadow: none;
+        }
+
+        [data-theme="light"] .nav-links a::after { box-shadow: none; }
+        [data-theme="light"] .nav-links a.active { opacity: 1; color: var(--neon); }
+        [data-theme="light"] .nav-links a.active::after { background: var(--neon); }
+
+        [data-theme="light"] .btn-resume {
+            border-color: var(--neon);
+            color: var(--neon);
+            text-shadow: none;
+            box-shadow: none;
+        }
+
+        [data-theme="light"] .btn-resume:hover {
+            background: var(--neon);
+            color: white;
+        }
+
+        [data-theme="light"] .hamburger span { background: var(--white); }
+
+        [data-theme="light"] .hero-ambient-1 { background: rgba(179,78,255,0.08); }
+        [data-theme="light"] .hero-ambient-2 { background: rgba(179,78,255,0.06); }
+
+        [data-theme="light"] .hero-photo-area #svg-global #node-server path:last-child {
+            fill: #f0eaff;
+        }
+
+        [data-theme="light"] .exp-card { background: var(--bg-card); border-color: var(--border); }
+        [data-theme="light"] .skill-pill { background: var(--bg-light); }
+        [data-theme="light"] .proj-card { background: var(--bg-card); border-color: var(--border); }
+        [data-theme="light"] footer { border-color: var(--border); }
+        [data-theme="light"] #chat-btn { box-shadow: 0 4px 20px rgba(179,78,255,0.25); }
+
+        [data-theme="light"] .theme-switch .slider { background-color: #c8b8d8; }
+        [data-theme="light"] .theme-switch { border-color: rgba(139,48,214,0.3); }
+        [data-theme="light"] .theme-switch .slider:before { background-color: #6b4c8a; }
+        [data-theme="light"] .theme-switch input:checked + .slider { background-color: #87CEEB; }
+        [data-theme="light"] .theme-switch input:checked + .slider:before { background-color: #ff8c00; }
+
+        @media (max-width: 768px) {
+            [data-theme="light"] .nav-links {
+                border-color: rgba(179,78,255,0.25);
+                box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            }
         }
 
         html { scroll-behavior: smooth; }
@@ -188,12 +281,12 @@
             align-items: center;
             justify-content: space-between;
             padding: 16px 36px;
-            background: rgba(5,10,5,0.82);
+            background: var(--nav-bg);
             backdrop-filter: blur(20px) saturate(1.4);
             -webkit-backdrop-filter: blur(20px) saturate(1.4);
             border: 1px solid rgba(179,78,255,0.1);
             border-radius: var(--radius-md);
-            box-shadow: 0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(179,78,255,0.06);
+            box-shadow: var(--nav-shadow), inset 0 1px 0 rgba(179,78,255,0.06);
             transition: box-shadow 0.3s, background 0.3s;
         }
 
@@ -260,6 +353,180 @@
         .nav-right {
             display: flex;
             align-items: center;
+            gap: 12px;
+        }
+
+        /* =========================================================
+           THEME TOGGLE SWITCH
+        ========================================================= */
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 28px;
+            border: 1px solid rgba(179,78,255,0.25);
+            border-radius: 22px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .theme-switch .slider {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #1a1a2e;
+            border-radius: 20px;
+            transition: 0.4s;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .theme-switch .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 4px;
+            background-color: #ffd93d;
+            transition: 0.6s;
+            border-radius: 50%;
+            z-index: 3;
+        }
+
+        .theme-switch .moons-hole {
+            position: absolute;
+            opacity: 1;
+            transition: 0.6s;
+            z-index: 2;
+        }
+
+        .theme-switch .moon-hole {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #555;
+        }
+        .theme-switch .moon-hole:nth-child(1) { height: 4px; width: 4px; top: 18px; left: 16px; }
+        .theme-switch .moon-hole:nth-child(2) { height: 7px; width: 7px; top: 11px; left: 6px; }
+        .theme-switch .moon-hole:nth-child(3) { height: 3px; width: 3px; top: 8px; left: 16px; }
+
+        .theme-switch input:checked + .slider { background-color: #62cff0; }
+        .theme-switch input:checked + .slider:before {
+            transform: translateX(34px);
+            background-color: #ff8c00;
+        }
+        .theme-switch input:checked + .slider .moons-hole {
+            transform: translateX(34px);
+            opacity: 0;
+        }
+
+        .theme-switch .stars {
+            position: absolute;
+            right: 4px; top: 0; bottom: 0;
+            transition: 0.6s;
+        }
+        .theme-switch .star {
+            position: absolute;
+            fill: white;
+            animation: star-twinkle 2s infinite;
+        }
+        .theme-switch .star:nth-child(1) { top: 3px; right: 20px; width: 14px; animation-delay: 0.3s; }
+        .theme-switch .star:nth-child(2) { top: 12px; right: 5px; width: 10px; }
+        .theme-switch .star:nth-child(3) { top: 3px; right: 10px; width: 7px; animation-delay: 0.6s; }
+        .theme-switch .star:nth-child(4) { top: 18px; right: 19px; width: 8px; animation-delay: 0.9s; }
+        .theme-switch .star:nth-child(5) { top: 1px; right: 34px; width: 5px; animation-delay: 1.2s; }
+
+        .theme-switch input:checked + .slider .stars {
+            transform: translateY(-24px);
+            opacity: 0;
+        }
+
+        .theme-switch .clouds {
+            position: absolute;
+            left: 3px; top: 0; bottom: 0;
+            width: 16px;
+            transition: 0.6s;
+            transform: translateX(-40px);
+        }
+        .theme-switch .cloud {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: cloud-move 6s infinite;
+        }
+        .theme-switch .cloud:nth-child(1) { top: 0; height: 14px; width: 14px; right: 10px; }
+        .theme-switch .cloud:nth-child(2) { height: 17px; width: 17px; top: 10px; right: 3px; }
+        .theme-switch .cloud:nth-child(3) { height: 16px; width: 16px; top: 19px; left: 2px; }
+        .theme-switch .cloud:nth-child(4) { top: 17px; left: 14px; height: 12px; width: 12px; }
+        .theme-switch .cloud:nth-child(5) { top: 21px; left: 22px; height: 10px; width: 10px; }
+        .theme-switch .cloud:nth-child(6) { top: 19px; left: 32px; height: 8px; width: 8px; }
+        .theme-switch .cloud:nth-child(7) { top: 22px; left: 40px; height: 6px; width: 6px; }
+
+        .theme-switch input:checked + .slider .clouds {
+            transform: translateX(22px);
+            opacity: 1;
+        }
+
+        .theme-switch .black-clouds {
+            position: absolute;
+            left: 3px; top: 0; bottom: 0;
+            width: 16px;
+            transition: 0.6s;
+            transform: translateX(-40px);
+            opacity: 0;
+            z-index: 0;
+        }
+        .theme-switch .black-cloud {
+            position: absolute;
+            width: 14px; height: 14px;
+            background-color: #555;
+            opacity: 0.6;
+            border-radius: 50%;
+            animation: cloud-move 6s infinite;
+            animation-delay: 1s;
+        }
+        .theme-switch .black-cloud:nth-child(1) { top: 0; right: 2px; }
+        .theme-switch .black-cloud:nth-child(2) { top: 10px; left: 6px; }
+        .theme-switch .black-cloud:nth-child(3) { top: 14px; left: 19px; }
+
+        .theme-switch input:checked + .slider .black-clouds {
+            transform: translateX(22px);
+            opacity: 1;
+        }
+
+        @keyframes star-twinkle {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.2); }
+            80% { transform: scale(0.8); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes cloud-move {
+            0% { transform: translateX(-24px); }
+            40% { transform: translateX(-28px); }
+            80% { transform: translateX(-20px); }
+            100% { transform: translateX(-24px); }
+        }
+
+        [data-theme="light"] .theme-switch .slider {
+            background-color: #c8b8d8;
+        }
+        [data-theme="light"] .theme-switch {
+            border-color: rgba(139,48,214,0.3);
+        }
+        [data-theme="light"] .theme-switch .slider:before {
+            background-color: #6b4c8a;
+        }
+        [data-theme="light"] .theme-switch input:checked + .slider {
+            background-color: #87CEEB;
+        }
+        [data-theme="light"] .theme-switch input:checked + .slider:before {
+            background-color: #ff8c00;
         }
 
         .btn-resume {
@@ -487,7 +754,6 @@
 
         .hero-right {
             position: relative;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -960,7 +1226,7 @@
                 display: none;
                 position: fixed;
                 top: 72px; left: 12px; right: 12px;
-                background: rgba(5,10,5,0.97);
+                background: var(--nav-bg-solid);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 gap: 0;
@@ -978,11 +1244,12 @@
             }
             .nav-links a::after { display: none; }
             .hamburger { display: flex; }
-            .nav-right { display: none; }
+            .nav-right .btn-resume { display: none; }
 
             #about {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto auto;
+                padding-top: 80px;
             }
             .hero-left {
                 order: 2;
@@ -992,12 +1259,16 @@
             .hero-right {
                 order: 1;
                 height: auto;
-                padding: 32px 24px;
-                max-height: 420px;
+                padding: 20px 24px 10px;
+                max-height: none;
             }
             .hero-photo-area {
-                width: 60%;
-                max-width: 280px;
+                width: 55%;
+                max-width: 220px;
+            }
+            .hero-portrait {
+                top: 3%;
+                width: 40%;
             }
             .hero-name { font-size: 2.2rem; }
             .hero-bio { max-width: 100%; }
@@ -1018,8 +1289,11 @@
 
         @media (max-width: 480px) {
             .exp-card { flex: 1 1 100%; max-width: 100%; }
-            .hero-right { height: 70vw; }
+            .hero-right { padding: 16px 20px 10px; }
+            .hero-photo-area { width: 50%; max-width: 180px; }
+            .hero-portrait { width: 45%; }
             .projects-grid { grid-template-columns: 1fr; }
+            #about { padding-top: 70px; }
         }
 
         /* =========================================================
@@ -1351,6 +1625,37 @@
         </ul>
 
         <div class="nav-right">
+            <label class="theme-switch" aria-label="Toggle dark/light mode">
+                <input type="checkbox" id="theme-toggle" />
+                <span class="slider">
+                    <div class="moons-hole">
+                        <div class="moon-hole"></div>
+                        <div class="moon-hole"></div>
+                        <div class="moon-hole"></div>
+                    </div>
+                    <div class="stars">
+                        <svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"></path></svg>
+                        <svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"></path></svg>
+                        <svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"></path></svg>
+                        <svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"></path></svg>
+                        <svg class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"></path></svg>
+                    </div>
+                    <div class="clouds">
+                        <div class="cloud"></div>
+                        <div class="cloud"></div>
+                        <div class="cloud"></div>
+                        <div class="cloud"></div>
+                        <div class="cloud"></div>
+                        <div class="cloud"></div>
+                        <div class="cloud"></div>
+                    </div>
+                    <div class="black-clouds">
+                        <div class="black-cloud"></div>
+                        <div class="black-cloud"></div>
+                        <div class="black-cloud"></div>
+                    </div>
+                </span>
+            </label>
             <a href="#" class="btn-resume" id="btn-resume" download>
                 Resume
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2"
@@ -2499,6 +2804,27 @@
         
         chatInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') sendMessage();
+        });
+
+        /* ── Theme Toggle ── */
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlEl = document.documentElement;
+
+        // Restore saved preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            htmlEl.setAttribute('data-theme', 'light');
+            themeToggle.checked = true;
+        }
+
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                htmlEl.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlEl.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+            }
         });
 
     </script>
