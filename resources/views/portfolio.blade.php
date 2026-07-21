@@ -26,20 +26,20 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --bg:           #050a05;
-            --bg-deep:      #030803;
-            --bg-light:     #0a140a;
-            --bg-card:      #0a120a;
-            --white:        #eaffea;
-            --off-white:    #b8d8b8;
-            --muted:        #5a7f5a;
-            --border:       rgba(57,255,20,0.15);
-            --neon:         #39FF14;
-            --neon-soft:    #6fff4f;
-            --neon-dim:     rgba(57,255,20,0.08);
-            --neon-glow:    0 0 10px rgba(57,255,20,0.6), 0 0 30px rgba(57,255,20,0.2);
-            --neon-text-glow: 0 0 12px rgba(57,255,20,0.85), 0 0 36px rgba(57,255,20,0.35);
-            --neon-shadow:  0 4px 24px rgba(57,255,20,0.15);
+            --bg:           #0a050a;
+            --bg-deep:      #050205;
+            --bg-light:     #120a14;
+            --bg-card:      #100a12;
+            --white:        #f0eaff;
+            --off-white:    #c8b8d8;
+            --muted:        #7a5a8a;
+            --border:       rgba(179,78,255,0.15);
+            --neon:         #B34EFF;
+            --neon-soft:    #d08bff;
+            --neon-dim:     rgba(179,78,255,0.08);
+            --neon-glow:    0 0 10px rgba(179,78,255,0.6), 0 0 30px rgba(179,78,255,0.2);
+            --neon-text-glow: 0 0 12px rgba(179,78,255,0.85), 0 0 36px rgba(179,78,255,0.35);
+            --neon-shadow:  0 4px 24px rgba(179,78,255,0.15);
             --radius-sm:    8px;
             --radius-md:    14px;
             --radius-lg:    20px;
@@ -71,8 +71,8 @@
                 0deg,
                 transparent,
                 transparent 2px,
-                rgba(57,255,20,0.012) 2px,
-                rgba(57,255,20,0.012) 4px
+                rgba(179,78,255,0.012) 2px,
+                rgba(179,78,255,0.012) 4px
             );
             pointer-events: none;
             z-index: 50;
@@ -128,7 +128,7 @@
         ========================================================= */
         @keyframes neon-pulse {
             0%, 100% { opacity: 1; text-shadow: var(--neon-text-glow); }
-            50%       { opacity: 0.82; text-shadow: 0 0 6px rgba(57,255,20,0.45); }
+            50%       { opacity: 0.82; text-shadow: 0 0 6px rgba(179,78,255,0.45); }
         }
 
         @keyframes typewriter {
@@ -142,8 +142,8 @@
         }
 
         @keyframes border-glow {
-            0%, 100% { box-shadow: 0 0 8px rgba(57,255,20,0.35), inset 0 0 8px rgba(57,255,20,0.05); }
-            50%       { box-shadow: 0 0 22px rgba(57,255,20,0.65), inset 0 0 14px rgba(57,255,20,0.08); }
+            0%, 100% { box-shadow: 0 0 8px rgba(179,78,255,0.35), inset 0 0 8px rgba(179,78,255,0.05); }
+            50%       { box-shadow: 0 0 22px rgba(179,78,255,0.65), inset 0 0 14px rgba(179,78,255,0.08); }
         }
 
         @keyframes scan {
@@ -191,9 +191,9 @@
             background: rgba(5,10,5,0.82);
             backdrop-filter: blur(20px) saturate(1.4);
             -webkit-backdrop-filter: blur(20px) saturate(1.4);
-            border: 1px solid rgba(57,255,20,0.1);
+            border: 1px solid rgba(179,78,255,0.1);
             border-radius: var(--radius-md);
-            box-shadow: 0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(57,255,20,0.06);
+            box-shadow: 0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(179,78,255,0.06);
             transition: box-shadow 0.3s, background 0.3s;
         }
 
@@ -247,7 +247,7 @@
             background: var(--neon);
             transform: scaleX(0);
             transition: transform 0.25s var(--ease-spring);
-            box-shadow: 0 0 8px rgba(57,255,20,0.5);
+            box-shadow: 0 0 8px rgba(179,78,255,0.5);
         }
 
         .nav-links a:hover {
@@ -278,14 +278,14 @@
             cursor: pointer;
             font-family: var(--font-mono);
             text-shadow: var(--neon-text-glow);
-            box-shadow: 0 0 10px rgba(57,255,20,0.25);
+            box-shadow: 0 0 10px rgba(179,78,255,0.25);
         }
 
         .btn-resume:hover {
             background: var(--neon);
             color: var(--bg);
             text-shadow: none;
-            box-shadow: 0 0 28px rgba(57,255,20,0.6);
+            box-shadow: 0 0 28px rgba(179,78,255,0.6);
             transform: translateY(-2px);
         }
         .btn-resume:active {
@@ -316,7 +316,7 @@
             background: var(--neon);
             border-radius: 2px;
             transition: all 0.3s var(--ease-spring);
-            box-shadow: 0 0 6px rgba(57,255,20,0.5);
+            box-shadow: 0 0 6px rgba(179,78,255,0.5);
         }
 
         /* =========================================================
@@ -338,7 +338,7 @@
             position: absolute;
             inset: 0;
             background-image:
-                radial-gradient(circle, rgba(57,255,20,0.07) 1px, transparent 1px);
+                radial-gradient(circle, rgba(179,78,255,0.07) 1px, transparent 1px);
             background-size: 40px 40px;
             pointer-events: none;
             z-index: 0;
@@ -354,13 +354,13 @@
         }
         .hero-ambient-1 {
             width: 300px; height: 300px;
-            background: rgba(57,255,20,0.06);
+            background: rgba(179,78,255,0.06);
             top: 15%; left: 5%;
             animation: ambient-float 12s ease-in-out infinite;
         }
         .hero-ambient-2 {
             width: 200px; height: 200px;
-            background: rgba(57,255,20,0.04);
+            background: rgba(179,78,255,0.04);
             bottom: 20%; right: 40%;
             animation: ambient-float 16s ease-in-out infinite reverse;
         }
@@ -407,7 +407,7 @@
             margin-bottom: 28px;
             font-family: var(--font-mono);
             letter-spacing: 0.08em;
-            text-shadow: 0 0 10px rgba(57,255,20,0.45);
+            text-shadow: 0 0 10px rgba(179,78,255,0.45);
             /* Typewriter */
             overflow: hidden;
             white-space: nowrap;
@@ -424,39 +424,66 @@
             line-height: 1.8;
             max-width: 480px;
             margin-bottom: 40px;
-            border-left: 2px solid rgba(57,255,20,0.25);
+            border-left: 2px solid rgba(179,78,255,0.25);
             padding-left: 18px;
             font-weight: 400;
         }
 
-        .social-links { display: flex; gap: 14px; }
+        /* =========================================================
+           SOCIAL BUTTONS (3D hover)
+        ========================================================= */
+        .social-links {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            margin-top: 4px;
+        }
 
-        .social-btn {
-            width: 44px; height: 44px;
-            border-radius: 12px;
+        .social-links .child {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease-in-out;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        .social-links .child:hover {
+            background-color: white;
+            background-position: -100px 100px, -100px 100px;
+            transform: rotate3d(0.5, 1, 0, 30deg);
+            transform: perspective(180px) rotateX(60deg) translateY(2px);
+            box-shadow: 0px 10px 10px rgb(147, 51, 234);
+        }
+
+        .social-links a {
+            border: none;
+            background-color: transparent;
+            font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: transform 0.25s var(--ease-spring), box-shadow 0.25s;
-            overflow: hidden;
-            border: 1px solid rgba(57,255,20,0.25);
+            width: 100%;
+            height: 100%;
         }
 
-        .social-btn:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 0 16px rgba(57,255,20,0.45);
-        }
-        .social-btn:active {
-            transform: translateY(0) scale(0.97);
+        .social-links a:hover {
+            width: inherit;
+            height: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translate3d(0px, 0px, 15px) perspective(180px) rotateX(-35deg) translateY(2px);
+            border-radius: 50%;
         }
 
-        .social-btn.linkedin  { background: #0a66c2; }
-        .social-btn.facebook  { background: #1877f2; }
-        .social-btn.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
-
-        .social-btn img,
-        .social-btn svg { width: 22px; height: 22px; }
+        .social-links a:active { transform: scale(0.93); }
 
         .hero-right {
             position: relative;
@@ -468,61 +495,75 @@
             padding: 40px;
         }
 
-        /* Moving scan line over the photo */
-        .hero-photo-area::after {
-            content: '';
-            position: absolute;
-            left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--neon), transparent);
-            opacity: 0.45;
-            animation: scan 4s linear infinite;
-            pointer-events: none;
-            z-index: 4;
-        }
-
-        /* Corner brackets */
-        .hero-right::before {
-            content: '';
-            position: absolute;
-            top: 32px; right: 32px;
-            width: 40px; height: 40px;
-            border-top: 2px solid var(--neon);
-            border-right: 2px solid var(--neon);
-            box-shadow: 4px -4px 16px rgba(57,255,20,0.35);
-            z-index: 3;
-            pointer-events: none;
-        }
-
+        /* New SVG Glowing Server Background */
         .hero-photo-area {
             width: 85%;
             max-width: 480px;
-            aspect-ratio: 3 / 4;
-            background: var(--bg-deep);
-            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            border: 1px solid rgba(57,255,20,0.15);
-            border-radius: var(--radius-lg);
-            box-shadow:
-                0 0 40px rgba(57,255,20,0.08),
-                0 20px 60px rgba(0,0,0,0.5);
         }
 
+        #svg-global {
+            width: 100%;
+            height: auto;
+            overflow: visible;
+            z-index: 1;
+        }
+
+        @keyframes fade-particles {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(-40px); opacity: 0; }
+        }
+
+        #particles { animation: fade-particles 5s infinite alternate; }
+        .particle { animation: floatUp linear infinite; }
+        .p1 { animation-duration: 2.2s; animation-delay: 0s; }
+        .p2 { animation-duration: 2.5s; animation-delay: 0.3s; }
+        .p3 { animation-duration: 2s; animation-delay: 0.6s; }
+        .p4 { animation-duration: 2.8s; animation-delay: 0.2s; }
+        .p5 { animation-duration: 2.3s; animation-delay: 0.4s; }
+        .p6 { animation-duration: 3s; animation-delay: 0.1s; }
+        .p7 { animation-duration: 2.1s; animation-delay: 0.5s; }
+        .p8 { animation-duration: 2.6s; animation-delay: 0.2s; }
+        .p9 { animation-duration: 2.4s; animation-delay: 0.3s; }
+
+        @keyframes bounce-lines {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        #line-v1, #line-v2, #node-server, #panel-rigth, #reflectores, #particles {
+            animation: bounce-lines 3s ease-in-out infinite alternate;
+        }
+        #line-v2 { animation-delay: 0.2s; }
+        #node-server, #panel-rigth, #reflectores, #particles { animation-delay: 0.4s; }
+
+        /* Floating Profile Image */
         .hero-portrait {
-            width: 100%; height: 100%;
+            position: absolute;
+            top: 5%;
+            width: 50%;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
             object-position: center top;
-            display: block;
-            filter: brightness(0.92) contrast(1.08);
+            border-radius: 50%;
+            z-index: 2;
+            border: 2px solid var(--neon);
+            box-shadow: var(--neon-glow);
+            animation: floatAvatar 4s ease-in-out infinite alternate;
         }
 
-        /* Photo gradient overlay */
-        .hero-photo-overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 140px;
-            background: linear-gradient(to top, var(--bg-deep), transparent);
-            pointer-events: none;
+        @keyframes floatAvatar {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-20px); }
         }
 
         /* =========================================================
@@ -563,7 +604,7 @@
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(57,255,20,0.04) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(179,78,255,0.04) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -589,14 +630,14 @@
             flex-direction: column;
             transition: transform 0.35s var(--ease-spring), box-shadow 0.35s;
             cursor: default;
-            border: 1px solid rgba(57,255,20,0.15);
+            border: 1px solid rgba(179,78,255,0.15);
             background: var(--bg-card);
         }
 
         .exp-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 28px rgba(57,255,20,0.2), 0 24px 48px rgba(0,0,0,0.55);
-            border-color: rgba(57,255,20,0.5);
+            box-shadow: 0 0 28px rgba(179,78,255,0.2), 0 24px 48px rgba(0,0,0,0.55);
+            border-color: rgba(179,78,255,0.5);
         }
 
         .exp-card-image {
@@ -617,7 +658,7 @@
             padding: 20px 22px;
             border-radius: 0 0 var(--radius-md) var(--radius-md);
             background: var(--bg-card);
-            border-top: 1px solid rgba(57,255,20,0.08);
+            border-top: 1px solid rgba(179,78,255,0.08);
         }
 
         .exp-card-name {
@@ -625,7 +666,7 @@
             font-weight: 700;
             margin-bottom: 10px;
             color: var(--neon);
-            text-shadow: 0 0 8px rgba(57,255,20,0.35);
+            text-shadow: 0 0 8px rgba(179,78,255,0.35);
             font-family: var(--font-mono);
         }
 
@@ -697,14 +738,14 @@
             align-items: center;
             justify-content: center;
             padding: 12px 34px;
-            border: 1px solid rgba(57,255,20,0.3);
+            border: 1px solid rgba(179,78,255,0.3);
             border-radius: 999px;
             font-size: clamp(0.82rem, 1.3vw, 0.95rem);
             font-weight: 500;
             color: var(--neon);
             white-space: nowrap;
             flex-shrink: 0;
-            background: rgba(57,255,20,0.04);
+            background: rgba(179,78,255,0.04);
             font-family: var(--font-mono);
             letter-spacing: 0.06em;
             transition: all 0.3s var(--ease-spring);
@@ -717,14 +758,14 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(110deg, transparent 30%, rgba(57,255,20,0.12) 50%, transparent 70%);
+            background: linear-gradient(110deg, transparent 30%, rgba(179,78,255,0.12) 50%, transparent 70%);
             background-size: 200% 100%;
             opacity: 0;
             transition: opacity 0.3s;
         }
 
         .skill-pill:hover {
-            background: rgba(57,255,20,0.12);
+            background: rgba(179,78,255,0.12);
             border-color: var(--neon);
             box-shadow: var(--neon-glow);
             transform: scale(1.08);
@@ -762,7 +803,7 @@
 
         .edu-item {
             padding: 16px 0;
-            border-bottom: 1px solid rgba(57,255,20,0.08);
+            border-bottom: 1px solid rgba(179,78,255,0.08);
             display: flex;
             align-items: flex-start;
             gap: 14px;
@@ -773,7 +814,7 @@
         }
 
         .edu-item:hover {
-            border-color: rgba(57,255,20,0.35);
+            border-color: rgba(179,78,255,0.35);
             padding-left: 6px;
         }
 
@@ -783,7 +824,7 @@
             border-radius: 50%;
             margin-top: 8px;
             flex-shrink: 0;
-            box-shadow: 0 0 8px rgba(57,255,20,0.7);
+            box-shadow: 0 0 8px rgba(179,78,255,0.7);
             animation: float-dot 2.8s ease-in-out infinite;
         }
 
@@ -810,7 +851,7 @@
             border-radius: var(--radius-md);
             overflow: hidden;
             background: var(--bg-card);
-            border: 1px solid rgba(57,255,20,0.12);
+            border: 1px solid rgba(179,78,255,0.12);
             display: flex;
             flex-direction: column;
             transition: transform 0.35s var(--ease-spring), box-shadow 0.35s, border-color 0.3s;
@@ -822,8 +863,8 @@
 
         .proj-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 35px rgba(57,255,20,0.15), 0 24px 48px rgba(0,0,0,0.55);
-            border-color: rgba(57,255,20,0.5);
+            box-shadow: 0 0 35px rgba(179,78,255,0.15), 0 24px 48px rgba(0,0,0,0.55);
+            border-color: rgba(179,78,255,0.5);
         }
 
         .proj-thumb {
@@ -855,7 +896,7 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-            border-top: 1px solid rgba(57,255,20,0.06);
+            border-top: 1px solid rgba(179,78,255,0.06);
         }
 
         .proj-badge {
@@ -882,14 +923,14 @@
             gap: 6px;
             font-size: 0.8rem;
             font-weight: 600;
-            color: rgba(57,255,20,0.45);
+            color: rgba(179,78,255,0.45);
             transition: color 0.25s, text-shadow 0.25s;
             font-family: var(--font-mono);
         }
 
         .proj-card:hover .proj-link {
             color: var(--neon);
-            text-shadow: 0 0 10px rgba(57,255,20,0.55);
+            text-shadow: 0 0 10px rgba(179,78,255,0.55);
         }
 
         .proj-link svg {
@@ -924,7 +965,7 @@
                 flex-direction: column;
                 gap: 0;
                 padding: 12px 0 20px;
-                border: 1px solid rgba(57,255,20,0.12);
+                border: 1px solid rgba(179,78,255,0.12);
                 border-radius: var(--radius-md);
                 box-shadow: 0 8px 32px rgba(0,0,0,0.6);
             }
@@ -987,7 +1028,7 @@
         footer {
             text-align: center;
             padding: 48px 24px;
-            border-top: 1px solid rgba(57,255,20,0.08);
+            border-top: 1px solid rgba(179,78,255,0.08);
             font-size: 0.82rem;
             color: var(--muted);
             font-family: var(--font-mono);
@@ -1017,7 +1058,7 @@
         }
         .footer-social a:hover {
             color: var(--neon);
-            text-shadow: 0 0 8px rgba(57,255,20,0.5);
+            text-shadow: 0 0 8px rgba(179,78,255,0.5);
         }
         .footer-social a svg { width: 18px; height: 18px; }
 
@@ -1063,7 +1104,7 @@
 
         #chat-btn:hover {
             transform: scale(1.12);
-            box-shadow: 0 0 24px rgba(57,255,20,0.75);
+            box-shadow: 0 0 24px rgba(179,78,255,0.75);
         }
         #chat-btn:active {
             transform: scale(0.95);
@@ -1087,7 +1128,7 @@
         #wave-arm {
             opacity: 0;
             transform-box: fill-box;
-            transform-origin: 34px 22px;
+            transform-origin: 1px 18px;
             transition: opacity 0.35s ease;
         }
 
@@ -1110,9 +1151,9 @@
             height: 510px;
             background: rgba(5,10,5,0.94);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(57,255,20,0.3);
+            border: 1px solid rgba(179,78,255,0.3);
             border-radius: var(--radius-lg);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.75), 0 0 20px rgba(57,255,20,0.1);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.75), 0 0 20px rgba(179,78,255,0.1);
             z-index: 99;
             display: flex;
             flex-direction: column;
@@ -1131,8 +1172,8 @@
 
         .chat-header {
             padding: 16px 18px;
-            background: rgba(57,255,20,0.06);
-            border-bottom: 1px solid rgba(57,255,20,0.15);
+            background: rgba(179,78,255,0.06);
+            border-bottom: 1px solid rgba(179,78,255,0.15);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1190,8 +1231,8 @@
 
         .chat-msg.user {
             align-self: flex-end;
-            background: rgba(57,255,20,0.12);
-            border: 1px solid rgba(57,255,20,0.35);
+            background: rgba(179,78,255,0.12);
+            border: 1px solid rgba(179,78,255,0.35);
             color: var(--white);
             border-bottom-right-radius: 2px;
         }
@@ -1206,7 +1247,7 @@
 
         .chat-input-area {
             padding: 12px;
-            border-top: 1px solid rgba(57,255,20,0.15);
+            border-top: 1px solid rgba(179,78,255,0.15);
             display: flex;
             gap: 8px;
             background: rgba(0,0,0,0.15);
@@ -1225,7 +1266,7 @@
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        #chat-input:focus { border-color: var(--neon); box-shadow: 0 0 8px rgba(57,255,20,0.15); }
+        #chat-input:focus { border-color: var(--neon); box-shadow: 0 0 8px rgba(179,78,255,0.15); }
 
         #chat-send {
             background: var(--neon);
@@ -1354,52 +1395,158 @@
             </p>
 
             <div class="social-links" aria-label="Social profiles">
-                <a href="https://www.linkedin.com/in/rey-buban-a82057334/" target="_blank" rel="noopener"
-                   class="social-btn linkedin" id="link-linkedin"
-                   aria-label="LinkedIn profile">
-                    <!-- LinkedIn icon -->
-                    <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0
-                                 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0
-                                 016-6zM2 9h4v12H2z"/>
-                        <circle cx="4" cy="4" r="2" fill="white"/>
-                    </svg>
-                </a>
+                <div class="child">
+                    <a href="https://www.linkedin.com/in/rey-buban-a82057334/" target="_blank" rel="noopener"
+                       aria-label="LinkedIn profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.3em" viewBox="0 0 24 24" fill="#0a66c2">
+                            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                            <circle cx="4" cy="4" r="2" fill="#0a66c2"/>
+                        </svg>
+                    </a>
+                </div>
 
-                <a href="https://www.facebook.com/reybuban11" target="_blank" rel="noopener"
-                   class="social-btn facebook" id="link-facebook"
-                   aria-label="Facebook profile">
-                    <!-- Facebook f icon -->
-                    <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-                    </svg>
-                </a>
+                <div class="child">
+                    <a href="https://www.facebook.com/reybuban11" target="_blank" rel="noopener"
+                       aria-label="Facebook profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.3em" viewBox="0 0 320 512" fill="#4267B2">
+                            <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+                        </svg>
+                    </a>
+                </div>
 
-                <a href="https://www.instagram.com/reybuban11/" target="_blank" rel="noopener"
-                   class="social-btn instagram" id="link-instagram"
-                   aria-label="Instagram profile">
-                    <!-- Instagram icon -->
-                    <svg viewBox="0 0 24 24" fill="none" stroke="white"
-                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         aria-hidden="true">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                        <circle cx="12" cy="12" r="4"/>
-                        <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/>
-                    </svg>
-                </a>
+                <div class="child">
+                    <a href="https://www.instagram.com/reybuban11/" target="_blank" rel="noopener"
+                       aria-label="Instagram profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.3em" viewBox="0 0 448 512" fill="#ff00ff">
+                            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Right: portrait -->
         <div class="hero-right">
             <div class="hero-photo-area">
-                <!-- Real profile photo -->
+                <!-- SVG Glowing Server Background -->
+                <svg id="svg-global" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 94 136" height="136" width="94">
+                    <path stroke="#4B22B5" d="M87.3629 108.433L49.1073 85.3765C47.846 84.6163 45.8009 84.6163 44.5395 85.3765L6.28392 108.433C5.02255 109.194 5.02255 110.426 6.28392 111.187L44.5395 134.243C45.8009 135.004 47.846 135.004 49.1073 134.243L87.3629 111.187C88.6243 110.426 88.6243 109.194 87.3629 108.433Z" id="line-v1"></path>
+                    <path stroke="#5728CC" d="M91.0928 95.699L49.2899 70.5042C47.9116 69.6734 45.6769 69.6734 44.2986 70.5042L2.49568 95.699C1.11735 96.5298 1.11735 97.8767 2.49568 98.7074L44.2986 123.902C45.6769 124.733 47.9116 124.733 49.2899 123.902L91.0928 98.7074C92.4712 97.8767 92.4712 96.5298 91.0928 95.699Z" id="line-v2"></path>
+                    <g id="node-server">
+                        <path fill="url(#paint0_linear_204_217)" d="M2.48637 72.0059L43.8699 96.9428C45.742 98.0709 48.281 97.8084 50.9284 96.2133L91.4607 71.7833C92.1444 71.2621 92.4197 70.9139 92.5421 70.1257V86.1368C92.5421 86.9686 92.0025 87.9681 91.3123 88.3825C84.502 92.4724 51.6503 112.204 50.0363 113.215C48.2352 114.343 45.3534 114.343 43.5523 113.215C41.9261 112.197 8.55699 91.8662 2.08967 87.926C1.39197 87.5011 1.00946 86.5986 1.00946 85.4058V70.1257C1.11219 70.9289 1.49685 71.3298 2.48637 72.0059Z"></path>
+                        <path stroke="url(#paint2_linear_204_217)" fill="url(#paint1_linear_204_217)" d="M91.0928 68.7324L49.2899 43.5375C47.9116 42.7068 45.6769 42.7068 44.2986 43.5375L2.49568 68.7324C1.11735 69.5631 1.11735 70.91 2.49568 71.7407L44.2986 96.9356C45.6769 97.7663 47.9116 97.7663 49.2899 96.9356L91.0928 71.7407C92.4712 70.91 92.4712 69.5631 91.0928 68.7324Z"></path>
+                        <mask height="41" width="67" y="50" x="13" maskUnits="userSpaceOnUse" style="mask-type:luminance" id="mask0_204_217">
+                            <path fill="white" d="M78.3486 68.7324L49.0242 51.0584C47.6459 50.2276 45.4111 50.2276 44.0328 51.0584L14.7084 68.7324C13.3301 69.5631 13.3301 70.91 14.7084 71.7407L44.0328 89.4148C45.4111 90.2455 47.6459 90.2455 49.0242 89.4148L78.3486 71.7407C79.7269 70.91 79.727 69.5631 78.3486 68.7324Z"></path>
+                        </mask>
+                        <g mask="url(#mask0_204_217)">
+                            <path fill="#332C94" d="M78.3486 68.7324L49.0242 51.0584C47.6459 50.2276 45.4111 50.2276 44.0328 51.0584L14.7084 68.7324C13.3301 69.5631 13.3301 70.91 14.7084 71.7407L44.0328 89.4148C45.4111 90.2455 47.6459 90.2455 49.0242 89.4148L78.3486 71.7407C79.7269 70.91 79.727 69.5631 78.3486 68.7324Z"></path>
+                            <mask height="29" width="48" y="56" x="23" maskUnits="userSpaceOnUse" style="mask-type:luminance" id="mask1_204_217">
+                                <path fill="white" d="M68.9898 68.7324L49.0242 56.699C47.6459 55.8683 45.4111 55.8683 44.0328 56.699L24.0673 68.7324C22.6889 69.5631 22.6889 70.91 24.0673 71.7407L44.0328 83.7741C45.4111 84.6048 47.6459 84.6048 49.0242 83.7741L68.9898 71.7407C70.3681 70.91 70.3681 69.5631 68.9898 68.7324Z"></path>
+                            </mask>
+                            <g mask="url(#mask1_204_217)">
+                                <path fill="#5E5E5E" d="M68.9898 68.7324L49.0242 56.699C47.6459 55.8683 45.4111 55.8683 44.0328 56.699L24.0673 68.7324C22.6889 69.5631 22.6889 70.91 24.0673 71.7407L44.0328 83.7741C45.4111 84.6048 47.6459 84.6048 49.0242 83.7741L68.9898 71.7407C70.3681 70.91 70.3681 69.5631 68.9898 68.7324Z"></path>
+                                <path fill="#71B1C6" d="M70.1311 69.3884L48.42 56.303C47.3863 55.6799 45.7103 55.6799 44.6765 56.303L22.5275 69.6523C21.4938 70.2754 21.4938 71.2855 22.5275 71.9086L44.2386 84.994C45.2723 85.617 46.9484 85.617 47.9821 84.994L70.1311 71.6446C71.1648 71.0216 71.1648 70.0114 70.1311 69.3884Z"></path>
+                                <path fill="#80C0D4" d="M70.131 70.8923L48.4199 57.8069C47.3862 57.1839 45.7101 57.1839 44.6764 57.8069L22.5274 71.1562C21.4937 71.7793 21.4937 72.7894 22.5274 73.4125L44.2385 86.4979C45.2722 87.1209 46.9482 87.1209 47.982 86.4979L70.131 73.1486C71.1647 72.5255 71.1647 71.5153 70.131 70.8923Z"></path>
+                                <path fill="#89D3EB" d="M69.751 72.1675L48.4199 59.3111C47.3862 58.6881 45.7101 58.6881 44.6764 59.3111L23.2004 72.2548C22.1667 72.8779 22.1667 73.888 23.2004 74.5111L44.5315 87.3674C45.5653 87.9905 47.2413 87.9905 48.2751 87.3674L69.751 74.4238C70.7847 73.8007 70.7847 72.7905 69.751 72.1675Z"></path>
+                                <path fill="#97E6FF" d="M68.5091 72.9231L48.4199 60.8153C47.3862 60.1922 45.7101 60.1922 44.6764 60.8153L24.8146 72.7861C23.7808 73.4091 23.7808 74.4193 24.8146 75.0424L44.9038 87.1502C45.9375 87.7733 47.6135 87.7733 48.6473 87.1502L68.5091 75.1794C69.5428 74.5563 69.5428 73.5462 68.5091 72.9231Z"></path>
+                                <path fill="#97E6FF" d="M66.6747 73.3219L48.4199 62.3197C47.3862 61.6966 45.7101 61.6966 44.6764 62.3197L26.4412 73.3101C25.4075 73.9332 25.4075 74.9433 26.4412 75.5664L44.696 86.5686C45.7297 87.1917 47.4058 87.1917 48.4395 86.5686L66.6747 75.5782C67.7084 74.9551 67.7084 73.945 66.6747 73.3219Z"></path>
+                            </g>
+                            <path stroke-width="0.5" stroke="#F4F4F4" d="M68.9898 68.7324L49.0242 56.699C47.6459 55.8683 45.4111 55.8683 44.0328 56.699L24.0673 68.7324C22.6889 69.5631 22.6889 70.91 24.0673 71.7407L44.0328 83.7741C45.4111 84.6048 47.6459 84.6048 49.0242 83.7741L68.9898 71.7407C70.3681 70.91 70.3681 69.5631 68.9898 68.7324Z"></path>
+                        </g>
+                    </g>
+                    <g id="particles">
+                        <path fill="url(#paint3_linear_204_217)" d="M43.5482 32.558C44.5429 32.558 45.3493 31.7162 45.3493 30.6778C45.3493 29.6394 44.5429 28.7976 43.5482 28.7976C42.5535 28.7976 41.7471 29.6394 41.7471 30.6778C41.7471 31.7162 42.5535 32.558 43.5482 32.558Z" class="particle p1"></path>
+                        <path fill="url(#paint4_linear_204_217)" d="M50.0323 48.3519C51.027 48.3519 51.8334 47.5101 51.8334 46.4717C51.8334 45.4333 51.027 44.5915 50.0323 44.5915C49.0375 44.5915 48.2311 45.4333 48.2311 46.4717C48.2311 47.5101 49.0375 48.3519 50.0323 48.3519Z" class="particle p2"></path>
+                        <path fill="url(#paint5_linear_204_217)" d="M40.3062 62.6416C41.102 62.6416 41.7471 61.9681 41.7471 61.1374C41.7471 60.3067 41.102 59.6332 40.3062 59.6332C39.5104 59.6332 38.8653 60.3067 38.8653 61.1374C38.8653 61.9681 39.5104 62.6416 40.3062 62.6416Z" class="particle p3"></path>
+                        <path fill="url(#paint6_linear_204_217)" d="M50.7527 73.9229C52.1453 73.9229 53.2743 72.7444 53.2743 71.2906C53.2743 69.8368 52.1453 68.6583 50.7527 68.6583C49.3601 68.6583 48.2311 69.8368 48.2311 71.2906C48.2311 72.7444 49.3601 73.9229 50.7527 73.9229Z" class="particle p4"></path>
+                        <path fill="url(#paint7_linear_204_217)" d="M48.5913 76.9312C49.1882 76.9312 49.672 76.4262 49.672 75.8031C49.672 75.1801 49.1882 74.675 48.5913 74.675C47.9945 74.675 47.5107 75.1801 47.5107 75.8031C47.5107 76.4262 47.9945 76.9312 48.5913 76.9312Z" class="particle p5"></path>
+                        <path fill="url(#paint8_linear_204_217)" d="M52.9153 67.1541C53.115 67.1541 53.2768 66.9858 53.2768 66.7781C53.2768 66.5704 53.115 66.402 52.9153 66.402C52.7156 66.402 52.5538 66.5704 52.5538 66.7781C52.5538 66.9858 52.7156 67.1541 52.9153 67.1541Z" class="particle p6"></path>
+                        <path fill="url(#paint9_linear_204_217)" d="M52.1936 43.8394C52.7904 43.8394 53.2743 43.3344 53.2743 42.7113C53.2743 42.0883 52.7904 41.5832 52.1936 41.5832C51.5967 41.5832 51.1129 42.0883 51.1129 42.7113C51.1129 43.3344 51.5967 43.8394 52.1936 43.8394Z" class="particle p7"></path>
+                        <path fill="url(#paint10_linear_204_217)" d="M57.2367 29.5497C57.8335 29.5497 58.3173 29.0446 58.3173 28.4216C58.3173 27.7985 57.8335 27.2935 57.2367 27.2935C56.6398 27.2935 56.156 27.7985 56.156 28.4216C56.156 29.0446 56.6398 29.5497 57.2367 29.5497Z" class="particle p8"></path>
+                        <path fill="url(#paint11_linear_204_217)" d="M43.9084 34.8144C44.3063 34.8144 44.6289 34.4777 44.6289 34.0623C44.6289 33.647 44.3063 33.3102 43.9084 33.3102C43.5105 33.3102 43.188 33.647 43.188 34.0623C43.188 34.4777 43.5105 34.8144 43.9084 34.8144Z" class="particle p9"></path>
+                    </g>
+                    <g id="reflectores">
+                        <path fill-opacity="0.2" fill="url(#paint12_linear_204_217)" d="M49.2037 57.0009L68.7638 68.7786C69.6763 69.3089 69.7967 69.9684 69.794 70.1625V13.7383C69.7649 13.5587 69.6807 13.4657 69.4338 13.3096L48.4832 0.601307C46.9202 -0.192595 46.0788 -0.208238 44.6446 0.601307L23.6855 13.2118C23.1956 13.5876 23.1966 13.7637 23.1956 14.4904L23.246 70.1625C23.2948 69.4916 23.7327 69.0697 25.1768 68.2447L43.9084 57.0008C44.8268 56.4344 45.3776 56.2639 46.43 56.2487C47.5299 56.2257 48.1356 56.4222 49.2037 57.0009Z"></path>
+                        <path fill-opacity="0.2" fill="url(#paint13_linear_204_217)" d="M48.8867 27.6696C49.9674 26.9175 68.6774 14.9197 68.6774 14.9197C69.3063 14.5327 69.7089 14.375 69.7796 13.756V70.1979C69.7775 70.8816 69.505 71.208 68.7422 71.7322L48.9299 83.6603C48.2003 84.1258 47.6732 84.2687 46.5103 84.2995C45.3295 84.2679 44.8074 84.1213 44.0907 83.6603L24.4348 71.8149C23.5828 71.3313 23.2369 71.0094 23.2316 70.1979L23.1884 13.9816C23.1798 14.8398 23.4982 15.3037 24.7518 16.0874C24.7518 16.0874 42.7629 26.9175 44.2038 27.6696C45.6447 28.4217 46.0049 28.4217 46.5452 28.4217C47.0856 28.4217 47.806 28.4217 48.8867 27.6696Z"></path>
+                    </g>
+                    <g id="panel-rigth">
+                        <mask fill="white" id="path-26-inside-1_204_217">
+                            <path d="M72 91.8323C72 90.5121 72.9268 88.9068 74.0702 88.2467L87.9298 80.2448C89.0731 79.5847 90 80.1198 90 81.44V81.44C90 82.7602 89.0732 84.3656 87.9298 85.0257L74.0702 93.0275C72.9268 93.6876 72 93.1525 72 91.8323V91.8323Z"></path>
+                        </mask>
+                        <path fill="#91DDFB" d="M72 91.8323C72 90.5121 72.9268 88.9068 74.0702 88.2467L87.9298 80.2448C89.0731 79.5847 90 80.1198 90 81.44V81.44C90 82.7602 89.0732 84.3656 87.9298 85.0257L74.0702 93.0275C72.9268 93.6876 72 93.1525 72 91.8323V91.8323Z"></path>
+                        <path mask="url(#path-26-inside-1_204_217)" fill="#489CB7" d="M72 89.4419L90 79.0496L72 89.4419ZM90.6928 81.44C90.6928 82.9811 89.6109 84.8551 88.2762 85.6257L74.763 93.4275C73.237 94.3085 72 93.5943 72 91.8323V91.8323C72 92.7107 72.9268 92.8876 74.0702 92.2275L87.9298 84.2257C88.6905 83.7865 89.3072 82.7184 89.3072 81.84L90.6928 81.44ZM72 94.2227V89.4419V94.2227ZM88.2762 80.0448C89.6109 79.2742 90.6928 79.8989 90.6928 81.44V81.44C90.6928 82.9811 89.6109 84.8551 88.2762 85.6257L87.9298 84.2257C88.6905 83.7865 89.3072 82.7184 89.3072 81.84V81.84C89.3072 80.5198 88.6905 79.8056 87.9298 80.2448L88.2762 80.0448Z"></path>
+                        <mask fill="white" id="path-28-inside-2_204_217">
+                            <path d="M67 94.6603C67 93.3848 67.8954 91.8339 69 91.1962V91.1962C70.1046 90.5584 71 91.0754 71 92.3509V92.5129C71 93.7884 70.1046 95.3393 69 95.977V95.977C67.8954 96.6147 67 96.0978 67 94.8223V94.6603Z"></path>
+                        </mask>
+                        <path fill="#91DDFB" d="M67 94.6603C67 93.3848 67.8954 91.8339 69 91.1962V91.1962C70.1046 90.5584 71 91.0754 71 92.3509V92.5129C71 93.7884 70.1046 95.3393 69 95.977V95.977C67.8954 96.6147 67 96.0978 67 94.8223V94.6603Z"></path>
+                        <path mask="url(#path-28-inside-2_204_217)" fill="#489CB7" d="M67 92.3509L71 90.0415L67 92.3509ZM71.6928 92.5129C71.6928 94.0093 70.6423 95.8288 69.3464 96.577L69.3464 96.577C68.0505 97.3252 67 96.7187 67 95.2223V94.8223C67 95.6559 67.8954 95.8147 69 95.177L69 95.177C69.7219 94.7602 70.3072 93.7465 70.3072 92.9129L71.6928 92.5129ZM67 97.1317V92.3509V97.1317ZM69.2762 91.0367C70.6109 90.2661 71.6928 90.8908 71.6928 92.4319V92.5129C71.6928 94.0093 70.6423 95.8288 69.3464 96.577L69 95.177C69.7219 94.7602 70.3072 93.7465 70.3072 92.9129V92.7509C70.3072 91.4754 69.7219 90.7794 69 91.1962L69.2762 91.0367Z"></path>
+                    </g>
+                    <defs>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="92.0933" x2="92.5421" y1="92.0933" x1="1.00946" id="paint0_linear_204_217">
+                            <stop stop-color="#5727CC"></stop>
+                            <stop stop-color="#4354BF" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="91.1638" x2="6.72169" y1="70" x1="92.5" id="paint1_linear_204_217">
+                            <stop stop-color="#4559C4"></stop>
+                            <stop stop-color="#332C94" offset="0.29"></stop>
+                            <stop stop-color="#5727CB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="85.0762" x2="3.55544" y1="70" x1="92.5" id="paint2_linear_204_217">
+                            <stop stop-color="#91DDFB"></stop>
+                            <stop stop-color="#8841D5" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="32.558" x2="43.5482" y1="28.7976" x1="43.5482" id="paint3_linear_204_217">
+                            <stop stop-color="#5927CE"></stop>
+                            <stop stop-color="#91DDFB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="48.3519" x2="50.0323" y1="44.5915" x1="50.0323" id="paint4_linear_204_217">
+                            <stop stop-color="#5927CE"></stop>
+                            <stop stop-color="#91DDFB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="62.6416" x2="40.3062" y1="59.6332" x1="40.3062" id="paint5_linear_204_217">
+                            <stop stop-color="#5927CE"></stop>
+                            <stop stop-color="#91DDFB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="73.9229" x2="50.7527" y1="68.6583" x1="50.7527" id="paint6_linear_204_217">
+                            <stop stop-color="#5927CE"></stop>
+                            <stop stop-color="#91DDFB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="76.9312" x2="48.5913" y1="74.675" x1="48.5913" id="paint7_linear_204_217">
+                            <stop stop-color="#5927CE"></stop>
+                            <stop stop-color="#91DDFB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="67.1541" x2="52.9153" y1="66.402" x1="52.9153" id="paint8_linear_204_217">
+                            <stop stop-color="#5927CE"></stop>
+                            <stop stop-color="#91DDFB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="43.8394" x2="52.1936" y1="41.5832" x1="52.1936" id="paint9_linear_204_217">
+                            <stop stop-color="#5927CE"></stop>
+                            <stop stop-color="#91DDFB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="29.5497" x2="57.2367" y1="27.2935" x1="57.2367" id="paint10_linear_204_217">
+                            <stop stop-color="#5927CE"></stop>
+                            <stop stop-color="#91DDFB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="34.8144" x2="43.9084" y1="33.3102" x1="43.9084" id="paint11_linear_204_217">
+                            <stop stop-color="#5927CE"></stop>
+                            <stop stop-color="#91DDFB" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="16.0743" x2="62.9858" y1="88.5145" x1="67.8638" id="paint12_linear_204_217">
+                            <stop stop-color="#97E6FF"></stop>
+                            <stop stop-opacity="0" stop-color="white" offset="1"></stop>
+                        </linearGradient>
+                        <linearGradient gradientUnits="userSpaceOnUse" y2="39.4139" x2="31.4515" y1="88.0938" x1="36.2597" id="paint13_linear_204_217">
+                            <stop stop-color="#97E6FF"></stop>
+                            <stop stop-opacity="0" stop-color="white" offset="1"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+                <!-- Real profile photo (floating) -->
                 <img src="{{ asset('images/profile.jpg') }}"
-                     alt="Rey Buban – AI Developer"
+                     alt="Rey Buban — AI Developer"
                      id="hero-portrait-img"
                      class="hero-portrait" />
-                <!-- Gradient overlay to blend into section -->
-                <div class="hero-photo-overlay" aria-hidden="true"></div>
             </div>
         </div>
 
@@ -1968,23 +2115,42 @@
     =================================================== -->
     <button id="chat-btn" aria-label="Open AI Assistant">
         <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
-            <!-- Antenna -->
-            <line x1="20" y1="2" x2="20" y2="9" stroke="#39FF14" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="20" cy="2" r="2" fill="#39FF14"/>
-            <!-- Head -->
-            <rect x="6" y="9" width="28" height="22" rx="6" fill="rgba(2,12,2,0.95)" stroke="#39FF14" stroke-width="1.5"/>
-            <!-- Eyes (outer) -->
-            <rect x="11" y="15" width="8" height="7" rx="2" fill="rgba(57,255,20,0.15)" stroke="#39FF14" stroke-width="1"/>
-            <rect x="21" y="15" width="8" height="7" rx="2" fill="rgba(57,255,20,0.15)" stroke="#39FF14" stroke-width="1"/>
-            <!-- Eye irises – these blink -->
-            <ellipse id="bot-eye-left"  class="bot-eye" cx="15" cy="18.5" rx="2.5" ry="2.5" fill="#39FF14"/>
-            <ellipse id="bot-eye-right" class="bot-eye" cx="25" cy="18.5" rx="2.5" ry="2.5" fill="#39FF14"/>
-            <!-- Mouth -->
-            <path d="M14 26 Q20 30 26 26" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <!-- Waving arm (hidden by default, shown by JS) -->
+            <!-- Antenna with signal dot -->
+            <line x1="20" y1="1" x2="20" y2="6" stroke="#B34EFF" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="20" cy="1" r="2" fill="#B34EFF"/>
+            <circle cx="20" cy="1" r="4" fill="#B34EFF" opacity="0.25">
+                <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.25;0;0.25" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Robot Head (main dome) -->
+            <path d="M6 12 Q6 7 12 7 L28 7 Q34 7 34 12 L34 26 Q34 32 28 32 L12 32 Q6 32 6 26 Z" fill="rgba(12,2,12,0.95)" stroke="#B34EFF" stroke-width="1.5"/>
+            <!-- Side ear panels -->
+            <rect x="2" y="14" width="5" height="10" rx="2.5" fill="rgba(179,78,255,0.12)" stroke="#B34EFF" stroke-width="1"/>
+            <rect x="33" y="14" width="5" height="10" rx="2.5" fill="rgba(179,78,255,0.12)" stroke="#B34EFF" stroke-width="1"/>
+            <!-- Inner ear accent lines -->
+            <line x1="3.5" y1="17" x2="3.5" y2="21" stroke="#B34EFF" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+            <line x1="36.5" y1="17" x2="36.5" y2="21" stroke="#B34EFF" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+            <!-- Visor background -->
+            <rect x="9" y="12" width="22" height="12" rx="4" fill="rgba(179,78,255,0.05)" stroke="rgba(179,78,255,0.2)" stroke-width="0.5"/>
+            <!-- Eye sockets -->
+            <rect x="11" y="14" width="7" height="7" rx="2" fill="rgba(179,78,255,0.1)" stroke="#B34EFF" stroke-width="1"/>
+            <rect x="22" y="14" width="7" height="7" rx="2" fill="rgba(179,78,255,0.1)" stroke="#B34EFF" stroke-width="1"/>
+            <!-- Eye irises (blinking) -->
+            <ellipse id="bot-eye-left" class="bot-eye" cx="14.5" cy="17.5" rx="2" ry="2" fill="#B34EFF"/>
+            <ellipse id="bot-eye-right" class="bot-eye" cx="25.5" cy="17.5" rx="2" ry="2" fill="#B34EFF"/>
+            <!-- Eye glow dots -->
+            <circle cx="14.5" cy="16.5" r="0.8" fill="white" opacity="0.8"/>
+            <circle cx="25.5" cy="16.5" r="0.8" fill="white" opacity="0.8"/>
+            <!-- Digital mouth / speaker grille -->
+            <rect x="15" y="26" width="10" height="2" rx="1" fill="#B34EFF" opacity="0.8"/>
+            <line x1="15" y1="29" x2="25" y2="29" stroke="#B34EFF" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+            <!-- Tech accent lines on forehead -->
+            <line x1="16" y1="9" x2="24" y2="9" stroke="#B34EFF" stroke-width="0.6" stroke-linecap="round" opacity="0.3"/>
+            <line x1="18" y1="10.5" x2="22" y2="10.5" stroke="#B34EFF" stroke-width="0.6" stroke-linecap="round" opacity="0.2"/>
+            <!-- Waving arm -->
             <g id="wave-arm">
-                <line x1="34" y1="22" x2="37" y2="13" stroke="#39FF14" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="37" cy="11" r="2.5" fill="#39FF14"/>
+                <line x1="1" y1="18" x2="-3" y2="10" stroke="#B34EFF" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="-3" cy="8" r="2.5" fill="#B34EFF"/>
             </g>
         </svg>
     </button>
@@ -2099,10 +2265,10 @@
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.navbar');
             if (window.scrollY > 10) {
-                nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(57,255,20,0.08)';
+                nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(179,78,255,0.08)';
                 nav.style.background = 'rgba(5,10,5,0.92)';
             } else {
-                nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(57,255,20,0.06)';
+                nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(179,78,255,0.06)';
                 nav.style.background = 'rgba(5,10,5,0.82)';
             }
         });
