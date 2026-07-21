@@ -2569,12 +2569,21 @@
         /* ── Navbar shadow on scroll ── */
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.navbar');
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
             if (window.scrollY > 10) {
-                nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(179,78,255,0.08)';
-                nav.style.background = 'rgba(5,10,5,0.92)';
+                nav.style.boxShadow = isLight
+                    ? '0 4px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.9)'
+                    : '0 4px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(179,78,255,0.08)';
+                nav.style.background = isLight
+                    ? 'rgba(255,255,255,0.96)'
+                    : 'rgba(5,10,5,0.92)';
             } else {
-                nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(179,78,255,0.06)';
-                nav.style.background = 'rgba(5,10,5,0.82)';
+                nav.style.boxShadow = isLight
+                    ? '0 4px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)'
+                    : '0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(179,78,255,0.06)';
+                nav.style.background = isLight
+                    ? 'rgba(255,255,255,0.92)'
+                    : 'rgba(5,10,5,0.82)';
             }
         });
 
