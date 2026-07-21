@@ -127,7 +127,46 @@
         [data-theme="light"] .skill-pill { background: var(--bg-light); }
         [data-theme="light"] .proj-card { background: var(--bg-card); border-color: var(--border); }
         [data-theme="light"] footer { border-color: var(--border); }
-        [data-theme="light"] #chat-btn { box-shadow: 0 4px 20px rgba(179,78,255,0.25); }
+        [data-theme="light"] #chat-btn {
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 4px 20px rgba(179,78,255,0.25);
+        }
+
+        [data-theme="light"] #chat-window {
+            background: rgba(255,255,255,0.95);
+            border-color: rgba(179,78,255,0.25);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15), 0 0 20px rgba(179,78,255,0.08);
+        }
+
+        [data-theme="light"] .chat-header {
+            background: rgba(179,78,255,0.04);
+            border-bottom-color: rgba(179,78,255,0.12);
+        }
+
+        [data-theme="light"] .chat-msg.user {
+            background: rgba(179,78,255,0.08);
+            border-color: rgba(179,78,255,0.2);
+            color: var(--white);
+        }
+
+        [data-theme="light"] .chat-msg.bot {
+            background: rgba(179,78,255,0.03);
+            border-color: rgba(179,78,255,0.1);
+            color: var(--white);
+        }
+
+        [data-theme="light"] .chat-input-area {
+            background: rgba(179,78,255,0.03);
+            border-top-color: rgba(179,78,255,0.12);
+        }
+
+        [data-theme="light"] #chat-input {
+            background: rgba(255,255,255,0.8);
+            border-color: rgba(179,78,255,0.15);
+            color: var(--white);
+        }
+
+        [data-theme="light"] #chat-send { color: white; }
 
         [data-theme="light"] .theme-switch .slider { background-color: #c8b8d8; }
         [data-theme="light"] .theme-switch { border-color: rgba(139,48,214,0.3); }
