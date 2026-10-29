@@ -2247,7 +2247,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 100;
+            z-index: 9999;
             box-shadow: var(--neon-glow);
             transition: transform 0.25s var(--ease-spring), box-shadow 0.25s;
         }
@@ -2304,7 +2304,7 @@
             border: 1px solid rgba(179,78,255,0.3);
             border-radius: var(--radius-lg);
             box-shadow: 0 12px 40px rgba(0,0,0,0.75), 0 0 20px rgba(179,78,255,0.1);
-            z-index: 99;
+            z-index: 10000;
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -2455,15 +2455,41 @@
             40% { transform: scale(1); }
         }
 
-        @media (max-width: 480px) {
-            #chat-window {
-                bottom: 85px;
-                right: 12px;
-                left: 12px;
-                width: auto;
-                height: 400px;
+        @media (max-width: 768px) {
+            #chat-btn {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+                right: calc(18px + env(safe-area-inset-right, 0px)) !important;
+                width: 56px !important;
+                height: 56px !important;
+                z-index: 9999 !important;
             }
-            #chat-btn { bottom: 15px; right: 15px; width: 50px; height: 50px; }
+            #chat-window {
+                bottom: calc(86px + env(safe-area-inset-bottom, 0px)) !important;
+                right: calc(14px + env(safe-area-inset-right, 0px)) !important;
+                left: calc(14px + env(safe-area-inset-left, 0px)) !important;
+                width: auto !important;
+                max-width: calc(100vw - 28px) !important;
+                height: 440px !important;
+                max-height: 72vh !important;
+                z-index: 10000 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #chat-btn {
+                bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+                right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+                width: 52px !important;
+                height: 52px !important;
+            }
+            #chat-window {
+                bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+                height: 420px !important;
+                max-height: 75vh !important;
+            }
         }
 
         /* =========================================================
@@ -3628,8 +3654,34 @@
         </div>
     </section>
 
+    </main>
+
     <!-- ===================================================
-         CHATBOT UI
+         FOOTER
+    =================================================== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/rey-buban-a82057334/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://www.facebook.com/reybuban11" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/reybuban11/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                </a>
+            </div>
+            <p>© 2025 Rey Buban · All rights reserved</p>
+            <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                back_to_top()
+            </button>
+        </div>
+    </footer>
+
+    <!-- ===================================================
+         CHATBOT UI (Direct Body Child for Rock-Solid Mobile Visibility)
     =================================================== -->
     <button id="chat-btn" aria-label="Open AI Assistant">
         <!-- Seasonal Bot Charms -->
@@ -3723,32 +3775,6 @@
             <button id="chat-send">Send</button>
         </div>
     </div>
-
-    </main>
-
-    <!-- ===================================================
-         FOOTER
-    =================================================== -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/rey-buban-a82057334/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="https://www.facebook.com/reybuban11" target="_blank" rel="noopener" aria-label="Facebook">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/reybuban11/" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                </a>
-            </div>
-            <p>© 2025 Rey Buban · All rights reserved</p>
-            <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-                back_to_top()
-            </button>
-        </div>
-    </footer>
 
     <!-- ===================================================
          JAVASCRIPT
