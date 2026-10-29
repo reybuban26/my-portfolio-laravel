@@ -447,8 +447,12 @@
             pointer-events: none;
             position: fixed;
             inset: 0;
-            z-index: 45;
+            width: 100%;
+            max-width: 100vw;
+            height: 100%;
             overflow: hidden;
+            contain: paint;
+            z-index: 45;
         }
 
         .decor-halloween, .decor-christmas, .decor-newyear, .decor-valentine {
@@ -567,7 +571,7 @@
 
         /* --- Christmas Elements --- */
         #snow-canvas {
-            position: fixed;
+            position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
@@ -631,7 +635,7 @@
 
         /* --- Casper-style Full Screen Flying Ghosts --- */
         .h-casper-ghost {
-            position: fixed;
+            position: absolute;
             pointer-events: none;
             z-index: 47;
             filter: drop-shadow(0 0 16px rgba(255, 117, 24, 0.85));
@@ -739,7 +743,7 @@
 
         /* --- Christmas Enhanced Elements (Santa Sleigh, Tree, Baubles) --- */
         .c-santa-sleigh {
-            position: fixed;
+            position: absolute;
             top: 105px;
             left: -320px;
             width: 270px;
@@ -831,7 +835,7 @@
 
         /* --- New Year Fireworks, Toast & Disco Ball --- */
         #fireworks-canvas {
-            position: fixed;
+            position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
@@ -912,7 +916,7 @@
 
         /* --- Valentine's Day Flying Cupid, Rose, Love Letter --- */
         #hearts-canvas {
-            position: fixed;
+            position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
@@ -921,7 +925,7 @@
         }
 
         .val-cupid-fly {
-            position: fixed;
+            position: absolute;
             top: 95px;
             left: -140px;
             width: 86px;
@@ -1018,13 +1022,21 @@
             box-shadow: var(--nav-shadow), inset 0 1px 0 rgba(255,255,255,0.95) !important;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+        }
 
         body {
             font-family: var(--font-display);
             background-color: var(--bg);
             color: var(--white);
             overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+            position: relative;
             line-height: 1.65;
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
@@ -2097,11 +2109,20 @@
         }
 
         @media (max-width: 768px) {
-            .navbar { top: 10px; left: 12px; right: 12px; padding: 12px 18px; }
+            .navbar {
+                top: 10px;
+                left: 12px;
+                right: 12px;
+                padding: 10px 14px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 6px;
+            }
             .nav-links {
                 display: none;
                 position: fixed;
-                top: 72px; left: 12px; right: 12px;
+                top: 68px; left: 12px; right: 12px;
                 background: var(--nav-bg-solid);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
@@ -2119,57 +2140,113 @@
                 font-size: 1rem;
             }
             .nav-links a::after { display: none; }
-            .hamburger { display: flex; }
+            .hamburger {
+                display: flex;
+                flex-shrink: 0;
+                margin-left: 2px;
+            }
+            .nav-right {
+                margin-left: auto;
+                margin-right: 4px;
+                gap: 6px;
+                display: flex;
+                align-items: center;
+            }
             .nav-right .btn-resume { display: none; }
+            .theme-switch {
+                transform: scale(0.88);
+                transform-origin: right center;
+            }
 
             #about {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto auto;
                 padding-top: 80px;
+                width: 100%;
+                max-width: 100%;
             }
             .hero-left {
                 order: 2;
-                padding: 44px 24px 60px;
+                padding: 36px 20px 50px;
+                width: 100%;
+                max-width: 100%;
             }
             .hero-left::before { display: none; }
             .hero-right {
                 order: 1;
                 height: auto;
-                padding: 20px 24px 10px;
+                padding: 15px 20px 10px;
                 max-height: none;
+                width: 100%;
+                max-width: 100%;
             }
             .hero-photo-area {
                 width: 55%;
-                max-width: 220px;
+                max-width: 200px;
             }
             .hero-portrait {
                 top: 3%;
                 width: 40%;
             }
-            .hero-name { font-size: 2.2rem; }
-            .hero-bio { max-width: 100%; }
+            .hero-name { font-size: 2.1rem; }
+            .hero-bio { max-width: 100%; font-size: 0.88rem; }
 
-            #experience { padding: 80px 24px; }
-            .experience-cards { gap: 16px; }
-            .exp-card { max-width: 100%; flex: 1 1 calc(50% - 8px); }
+            #experience {
+                padding: 70px 20px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .experience-cards {
+                gap: 16px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .exp-card {
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+            }
 
-            #skills { padding: 80px 24px; }
-            .skill-pill { padding: 10px 22px; font-size: 0.85rem; }
+            #skills {
+                padding: 70px 20px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .skill-pill { padding: 9px 18px; font-size: 0.82rem; }
+            .marquee-wrapper { width: 100%; max-width: 100%; }
 
-            #education { padding: 80px 24px; }
-            .education-grid { grid-template-columns: 1fr; gap: 4px; }
+            #education {
+                padding: 70px 20px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                width: 100%;
+            }
 
-            #projects { padding: 80px 24px; }
-            .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            #projects {
+                padding: 70px 20px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px;
+                width: 100%;
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
-            .exp-card { flex: 1 1 100%; max-width: 100%; }
-            .hero-right { padding: 16px 20px 10px; }
-            .hero-photo-area { width: 50%; max-width: 180px; }
-            .hero-portrait { width: 45%; }
-            .projects-grid { grid-template-columns: 1fr; }
-            #about { padding-top: 70px; }
+            .navbar { padding: 8px 12px; }
+            .nav-right { gap: 4px; }
+            .theme-switch { transform: scale(0.82); }
+            .hero-right { padding: 12px 16px 8px; }
+            .hero-photo-area { width: 50%; max-width: 170px; }
+            .hero-portrait { width: 44%; }
+            #about { padding-top: 68px; }
         }
 
         /* =========================================================
