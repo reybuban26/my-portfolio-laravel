@@ -1421,11 +1421,11 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 24px;
+            padding: 8px 18px;
             border: 1.5px solid var(--neon);
             border-radius: var(--radius-sm);
             color: var(--neon);
-            font-size: 0.88rem;
+            font-size: 0.84rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.25s var(--ease-spring);
@@ -1434,6 +1434,11 @@
             font-family: var(--font-mono);
             text-shadow: var(--neon-text-glow);
             box-shadow: 0 0 10px rgba(179,78,255,0.25);
+            white-space: nowrap;
+        }
+
+        .nav-cv-link {
+            display: none;
         }
 
         .btn-resume:hover {
@@ -2140,6 +2145,14 @@
                 font-size: 1rem;
             }
             .nav-links a::after { display: none; }
+            .nav-cv-link {
+                display: block !important;
+                color: var(--neon) !important;
+                font-weight: 700;
+                border-top: 1px solid rgba(179,78,255,0.15);
+                margin-top: 6px;
+                padding-top: 16px !important;
+            }
             .hamburger {
                 display: flex;
                 flex-shrink: 0;
@@ -2932,6 +2945,7 @@
             <li><a href="#experience" id="nav-experience">Experience</a></li>
             <li><a href="#skills"     id="nav-skills">Skills</a></li>
             <li><a href="#projects"   id="nav-projects">Projects</a></li>
+            <li><a href="{{ asset('docs/Rey_Buban_Curriculum_Vitae.pdf') }}" download="Rey_Buban_Curriculum_Vitae.pdf" id="nav-cv-mobile" class="nav-cv-link">Curriculum Vitae (PDF)</a></li>
         </ul>
 
         <div class="nav-right">
@@ -2972,8 +2986,8 @@
                     </div>
                 </span>
             </label>
-            <a href="#" class="btn-resume" id="btn-resume" download>
-                Resume
+            <a href="{{ asset('docs/Rey_Buban_Curriculum_Vitae.pdf') }}" class="btn-resume" id="btn-resume" download="Rey_Buban_Curriculum_Vitae.pdf" aria-label="Download Curriculum Vitae (PDF)" title="Download Curriculum Vitae (PDF)">
+                Curriculum Vitae
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2"
                      stroke-linecap="round" stroke-linejoin="round"
                      aria-hidden="true">

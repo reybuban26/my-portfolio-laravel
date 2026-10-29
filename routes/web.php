@@ -8,6 +8,14 @@ Route::get('/', function () {
     return view('portfolio');
 });
 
+Route::get('/cv', function () {
+    return view('cv');
+});
+
+Route::get('/curriculum-vitae', function () {
+    return view('cv');
+});
+
 Route::get('/laravel', function () {
     return view('welcome');
 });
