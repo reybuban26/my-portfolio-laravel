@@ -16,6 +16,16 @@ Route::get('/curriculum-vitae', function () {
     return view('cv');
 });
 
+Route::get('/download-cv', function () {
+    $filePath = public_path('docs/Rey_Buban_Curriculum_Vitae.pdf');
+    if (!file_exists($filePath)) {
+        abort(404, 'Curriculum Vitae file not found.');
+    }
+    return response()->download($filePath, 'Rey_Buban_Curriculum_Vitae.pdf', [
+        'Content-Type' => 'application/pdf',
+    ]);
+});
+
 Route::get('/laravel', function () {
     return view('welcome');
 });

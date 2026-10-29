@@ -18,7 +18,6 @@
             --primary: #4a1d96;
             --primary-dark: #31136b;
             --primary-light: #7c3aed;
-            --accent: #6d28d9;
             --text-dark: #0f172a;
             --text-body: #334155;
             --text-muted: #64748b;
@@ -32,15 +31,15 @@
             font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-page);
             color: var(--text-body);
-            line-height: 1.55;
+            line-height: 1.5;
             padding: 30px 15px;
             -webkit-font-smoothing: antialiased;
         }
 
         /* Top Actions Bar (hidden when printing) */
         .cv-actions-bar {
-            max-width: 850px;
-            margin: 0 auto 20px;
+            max-width: 820px;
+            margin: 0 auto 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -49,8 +48,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 9px 18px;
-            font-size: 0.88rem;
+            padding: 8px 16px;
+            font-size: 0.85rem;
             font-weight: 600;
             border-radius: 8px;
             text-decoration: none;
@@ -67,22 +66,17 @@
         }
         .cv-btn-print:hover {
             background: var(--primary-dark);
-            transform: translateY(-1px);
-        }
-        .cv-btn-back:hover {
-            background: #f1f5f9;
-            transform: translateY(-1px);
         }
 
         /* Paper sheet layout */
         .cv-paper {
-            max-width: 850px;
+            max-width: 820px;
             margin: 0 auto;
             background: var(--bg-card);
-            border-radius: 12px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
             border: 1px solid var(--border);
-            padding: 48px 54px;
+            padding: 42px 48px;
         }
 
         /* Header */
@@ -91,60 +85,56 @@
             justify-content: space-between;
             align-items: flex-start;
             border-bottom: 2px solid var(--border-light);
-            padding-bottom: 28px;
-            margin-bottom: 26px;
-            gap: 20px;
+            padding-bottom: 22px;
+            margin-bottom: 20px;
         }
         .cv-name {
-            font-size: 2.35rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--text-dark);
             letter-spacing: -0.03em;
             line-height: 1.1;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         .cv-title {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--primary-light);
-            letter-spacing: -0.01em;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .cv-contacts {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px 18px;
-            font-size: 0.84rem;
+            gap: 6px 16px;
+            font-size: 0.82rem;
             color: var(--text-muted);
         }
         .cv-contact-item {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.15s ease;
-        }
-        .cv-contact-item:hover {
-            color: var(--primary);
         }
         .cv-contact-item svg {
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
             color: var(--primary-light);
         }
 
         /* Main Section Headings */
         .cv-section {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
         .cv-section-title {
-            font-size: 0.88rem;
+            font-size: 0.84rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.12em;
             color: var(--primary);
-            margin-bottom: 14px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -153,34 +143,31 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(to right, #e2e8f0, transparent);
+            background: #e2e8f0;
         }
 
         /* Summary */
         .cv-summary {
-            font-size: 0.93rem;
+            font-size: 0.88rem;
             color: var(--text-body);
-            line-height: 1.65;
+            line-height: 1.6;
             text-align: justify;
         }
 
         /* Experience Item */
-        .cv-exp-item, .cv-edu-item, .cv-proj-item {
-            margin-bottom: 18px;
-        }
-        .cv-exp-item:last-child, .cv-edu-item:last-child, .cv-proj-item:last-child {
-            margin-bottom: 0;
+        .cv-exp-item {
+            margin-bottom: 14px;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
         .cv-exp-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 4px;
-            flex-wrap: wrap;
-            gap: 4px;
+            margin-bottom: 3px;
         }
         .cv-role {
-            font-size: 1rem;
+            font-size: 0.94rem;
             font-weight: 700;
             color: var(--text-dark);
         }
@@ -189,7 +176,7 @@
             color: var(--primary);
         }
         .cv-period {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: var(--text-muted);
             font-family: 'JetBrains Mono', monospace;
@@ -197,60 +184,59 @@
         .cv-bullets {
             list-style: none;
             padding-left: 0;
-            margin-top: 6px;
+            margin-top: 4px;
         }
         .cv-bullets li {
             position: relative;
-            padding-left: 18px;
-            font-size: 0.89rem;
+            padding-left: 16px;
+            font-size: 0.85rem;
             color: var(--text-body);
-            margin-bottom: 4px;
-            line-height: 1.55;
+            margin-bottom: 3px;
+            line-height: 1.5;
         }
         .cv-bullets li::before {
             content: "•";
             position: absolute;
-            left: 4px;
-            top: -1px;
+            left: 3px;
+            top: 0;
             color: var(--primary-light);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
         }
 
-        /* Two columns for Skills & Education */
+        /* Two columns */
         .cv-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 20px;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
         /* Skill tags */
         .cv-skill-group {
-            margin-bottom: 12px;
-        }
-        .cv-skill-group:last-child {
-            margin-bottom: 0;
+            margin-bottom: 10px;
         }
         .cv-skill-label {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
         .cv-pills {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 5px;
         }
         .cv-pill {
-            background: #f3f0ff;
+            background: #f5f3ff;
             color: var(--primary-dark);
             border: 1px solid #ddd6fe;
-            padding: 3px 9px;
-            border-radius: 6px;
-            font-size: 0.78rem;
+            padding: 2px 7px;
+            border-radius: 5px;
+            font-size: 0.75rem;
             font-weight: 600;
             font-family: 'JetBrains Mono', monospace;
         }
@@ -259,68 +245,75 @@
         .cv-projects-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            gap: 12px;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
         .cv-project-card {
             background: #f8fafc;
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 14px 16px;
+            padding: 12px 14px;
             border-left: 3px solid var(--primary-light);
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
         .cv-project-name {
-            font-size: 0.94rem;
+            font-size: 0.88rem;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
         .cv-project-desc {
-            font-size: 0.84rem;
+            font-size: 0.8rem;
             color: var(--text-body);
-            line-height: 1.45;
-            margin-bottom: 6px;
+            line-height: 1.4;
+            margin-bottom: 4px;
         }
         .cv-project-tag {
             display: inline-block;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: var(--primary);
             font-family: 'JetBrains Mono', monospace;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         /* Education list */
         .cv-edu-item {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
         .cv-edu-degree {
-            font-size: 0.9rem;
+            font-size: 0.86rem;
             font-weight: 700;
             color: var(--text-dark);
         }
         .cv-edu-school {
-            font-size: 0.84rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
         }
 
         /* Awards badge */
         .cv-award-badge {
-            background: linear-gradient(135deg, #fef3c7, #fffbeb);
+            background: #fffbeb;
             border: 1px solid #fde68a;
             border-left: 3px solid #f59e0b;
-            padding: 10px 14px;
-            border-radius: 8px;
-            margin-top: 10px;
-            font-size: 0.85rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 0.8rem;
             color: #92400e;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
-        /* Print styles */
+        /* Print formatting */
         @media print {
             @page {
                 margin: 10mm 12mm;
@@ -345,24 +338,9 @@
                 border: 1px solid #cbd5e1 !important;
             }
             .cv-pill {
-                background: #f1f5f9 !important;
+                background: #f8fafc !important;
                 color: #0f172a !important;
                 border: 1px solid #cbd5e1 !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .cv-paper {
-                padding: 28px 20px;
-            }
-            .cv-header {
-                flex-direction: column;
-            }
-            .cv-name {
-                font-size: 1.9rem;
-            }
-            .cv-grid-2, .cv-projects-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -378,14 +356,12 @@
             </svg>
             Back to Portfolio
         </a>
-        <button class="cv-btn-print" onclick="window.print()">
+        <a href="/download-cv" class="cv-btn-print">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                <rect x="6" y="14" width="12" height="8"></rect>
+                <path d="M12 5v14M5 12l7 7 7-7"/>
             </svg>
-            Print / Save as PDF
-        </button>
+            Download PDF
+        </a>
     </div>
 
     <!-- Printable CV Sheet -->
@@ -567,7 +543,7 @@
                 <div class="cv-award-badge">
                     🏆 <span><strong>Rookie of the Year 2025</strong> — Synermaxx Corporation</span>
                 </div>
-                <div class="cv-award-badge" style="margin-top: 6px; border-left-color: #7c3aed; background: #faf5ff; border-color: #ddd6fe; color: #5b21b6;">
+                <div class="cv-award-badge" style="margin-top: 5px; border-left-color: #7c3aed; background: #faf5ff; border-color: #ddd6fe; color: #5b21b6;">
                     🎓 <span><strong>Certified Master of AI Chatbot</strong></span>
                 </div>
             </section>
