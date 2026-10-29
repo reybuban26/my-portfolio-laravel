@@ -181,6 +181,353 @@
             }
         }
 
+        /* =========================================================
+           SEASONAL THEMES (Calendar & URL Preview Support)
+        ========================================================= */
+
+        /* --- 1. HALLOWEEN THEME (Oct 29 - Nov 3) --- */
+        [data-season="halloween"] {
+            --neon:           #FF7518;
+            --neon-soft:      #FFA256;
+            --neon-dim:       rgba(255, 117, 24, 0.08);
+            --border:         rgba(255, 117, 24, 0.22);
+            --neon-glow:      0 0 10px rgba(255, 117, 24, 0.6), 0 0 30px rgba(255, 117, 24, 0.25);
+            --neon-text-glow: 0 0 12px rgba(255, 117, 24, 0.9), 0 0 36px rgba(255, 117, 24, 0.4);
+            --neon-shadow:    0 4px 24px rgba(255, 117, 24, 0.18);
+            --bg:             #0b0509;
+            --bg-deep:        #060205;
+            --bg-light:       #150912;
+            --bg-card:        #140810;
+            --white:          #fff4ea;
+            --off-white:      #dfc6b7;
+            --muted:          #996e62;
+            --nav-bg:         rgba(11, 5, 9, 0.85);
+            --nav-bg-solid:   rgba(11, 5, 9, 0.98);
+        }
+
+        [data-season="halloween"] #about::after {
+            background-image: radial-gradient(circle, rgba(255, 117, 24, 0.09) 1px, transparent 1px);
+        }
+        [data-season="halloween"] .hero-ambient-1 {
+            background: rgba(255, 117, 24, 0.14);
+        }
+        [data-season="halloween"] .hero-ambient-2 {
+            background: rgba(157, 0, 255, 0.12);
+        }
+        [data-season="halloween"] #line-v1 { stroke: #D95D00; }
+        [data-season="halloween"] #line-v2 { stroke: #FF7518; }
+        [data-season="halloween"] .hero-portrait {
+            border-color: #FF7518;
+            box-shadow: 0 0 16px rgba(255, 117, 24, 0.65);
+        }
+
+        /* Halloween Light Theme */
+        [data-season="halloween"][data-theme="light"] {
+            --bg:             #fef7f0;
+            --bg-deep:        #f8ebe0;
+            --bg-light:       #fffcf7;
+            --bg-card:        #ffffff;
+            --white:          #241203;
+            --off-white:      #4d2f19;
+            --muted:          #8f6a4e;
+            --border:         rgba(217, 93, 0, 0.25);
+            --neon:           #D95D00;
+            --neon-soft:      #ff802b;
+            --neon-glow:      0 0 8px rgba(217, 93, 0, 0.35), 0 0 20px rgba(217, 93, 0, 0.15);
+            --neon-text-glow: 0 0 6px rgba(217, 93, 0, 0.35);
+            --nav-bg:         rgba(255, 250, 245, 0.92);
+            --nav-bg-solid:   rgba(254, 247, 240, 0.98);
+        }
+
+        /* --- 2. CHRISTMAS THEME (Dec 1 - Jan 2) --- */
+        [data-season="christmas"] {
+            --neon:           #FF2253;
+            --neon-soft:      #FF6888;
+            --neon-dim:       rgba(255, 34, 83, 0.08);
+            --border:         rgba(255, 34, 83, 0.22);
+            --neon-glow:      0 0 10px rgba(255, 34, 83, 0.6), 0 0 30px rgba(0, 245, 160, 0.25);
+            --neon-text-glow: 0 0 12px rgba(255, 34, 83, 0.9), 0 0 36px rgba(0, 245, 160, 0.35);
+            --neon-shadow:    0 4px 24px rgba(255, 34, 83, 0.18);
+            --bg:             #030810;
+            --bg-deep:        #02050b;
+            --bg-light:       #06111e;
+            --bg-card:        #071321;
+            --white:          #f0f8ff;
+            --off-white:      #bdd8f0;
+            --muted:          #5e83a6;
+            --nav-bg:         rgba(3, 8, 16, 0.86);
+            --nav-bg-solid:   rgba(3, 8, 16, 0.98);
+        }
+
+        [data-season="christmas"] #about::after {
+            background-image: radial-gradient(circle, rgba(0, 245, 160, 0.08) 1px, transparent 1px);
+        }
+        [data-season="christmas"] .hero-ambient-1 {
+            background: rgba(255, 34, 83, 0.12);
+        }
+        [data-season="christmas"] .hero-ambient-2 {
+            background: rgba(0, 245, 160, 0.12);
+        }
+        [data-season="christmas"] #line-v1 { stroke: #00F5A0; }
+        [data-season="christmas"] #line-v2 { stroke: #FF2253; }
+        [data-season="christmas"] .hero-portrait {
+            border-color: #FF2253;
+            box-shadow: 0 0 16px rgba(255, 34, 83, 0.65);
+        }
+
+        /* Christmas Light Theme */
+        [data-season="christmas"][data-theme="light"] {
+            --bg:             #f2f7fd;
+            --bg-deep:        #e4eef8;
+            --bg-light:       #fafcff;
+            --bg-card:        #ffffff;
+            --white:          #08192a;
+            --off-white:      #224263;
+            --muted:          #5a7a9a;
+            --border:         rgba(217, 17, 61, 0.25);
+            --neon:           #D9113D;
+            --neon-soft:      #ff426b;
+            --neon-glow:      0 0 8px rgba(217, 17, 61, 0.35), 0 0 20px rgba(0, 180, 120, 0.15);
+            --neon-text-glow: 0 0 6px rgba(217, 17, 61, 0.35);
+            --nav-bg:         rgba(255, 255, 255, 0.92);
+            --nav-bg-solid:   rgba(242, 247, 253, 0.98);
+        }
+
+        /* --- Seasonal UI Switcher Button in Navbar --- */
+        .btn-season {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--white);
+            font-size: 0.78rem;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            transition: all 0.25s var(--ease-spring);
+            user-select: none;
+            flex-shrink: 0;
+        }
+        .btn-season:hover {
+            border-color: var(--neon);
+            box-shadow: var(--neon-glow);
+            transform: translateY(-1px);
+        }
+        .btn-season:active {
+            transform: scale(0.95);
+        }
+        .season-btn-icon {
+            font-size: 1rem;
+            line-height: 1;
+        }
+        .season-btn-text {
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+
+        @media (max-width: 768px) {
+            .btn-season { padding: 5px 9px; }
+            .season-btn-text { display: none; }
+        }
+
+        /* =========================================================
+           SEASONAL DECORATIVE ELEMENTS
+        ========================================================= */
+        #seasonal-decorations {
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 45;
+            overflow: hidden;
+        }
+
+        .decor-halloween, .decor-christmas {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+        }
+
+        [data-season="halloween"] .decor-halloween { display: block; }
+        [data-season="christmas"] .decor-christmas { display: block; }
+
+        /* --- Halloween Elements --- */
+        .h-web {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            color: var(--neon);
+            filter: drop-shadow(0 0 6px rgba(255, 117, 24, 0.45));
+            opacity: 0.75;
+            pointer-events: none;
+        }
+        .h-web-left { top: 0; left: 0; }
+        .h-web-right { top: 0; right: 0; }
+
+        .h-spider-hang {
+            position: absolute;
+            top: 0;
+            right: 85px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: spider-sway 4.5s ease-in-out infinite;
+            transform-origin: top center;
+        }
+        .h-thread {
+            width: 1px;
+            height: 70px;
+            background: linear-gradient(to bottom, rgba(255, 117, 24, 0.7), rgba(255, 117, 24, 0.2));
+            box-shadow: 0 0 4px rgba(255, 117, 24, 0.5);
+        }
+        .h-spider {
+            width: 32px;
+            height: 32px;
+            color: var(--neon);
+            filter: drop-shadow(0 0 6px rgba(255, 117, 24, 0.7));
+            margin-top: -2px;
+        }
+
+        @keyframes spider-sway {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            25%      { transform: rotate(8deg) translateY(6px); }
+            50%      { transform: rotate(-6deg) translateY(-2px); }
+            75%      { transform: rotate(5deg) translateY(3px); }
+        }
+
+        .h-ghost {
+            position: absolute;
+            color: var(--neon);
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(255, 117, 24, 0.45));
+        }
+        .h-ghost-1 {
+            top: 25%;
+            left: 3%;
+            width: 54px;
+            height: 64px;
+            animation: ghost-float-1 7s ease-in-out infinite;
+            opacity: 0.85;
+        }
+        .h-ghost-2 {
+            top: 60%;
+            right: 4%;
+            width: 46px;
+            height: 56px;
+            animation: ghost-float-2 8.5s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes ghost-float-1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33%      { transform: translate(16px, -28px) rotate(5deg); }
+            66%      { transform: translate(-12px, -14px) rotate(-4deg); }
+        }
+        @keyframes ghost-float-2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50%      { transform: translate(-20px, -24px) rotate(-6deg); }
+        }
+
+        .h-pumpkin {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            width: 52px;
+            height: 48px;
+            color: var(--neon);
+            filter: drop-shadow(0 0 10px rgba(255, 117, 24, 0.6));
+            animation: pumpkin-hover 4s ease-in-out infinite alternate;
+        }
+        @keyframes pumpkin-hover {
+            0%   { transform: translateY(0) rotate(-2deg); }
+            100% { transform: translateY(-8px) rotate(2deg); }
+        }
+        .pumpkin-glow {
+            animation: pumpkin-flicker 2.5s infinite;
+        }
+        @keyframes pumpkin-flicker {
+            0%, 100% { fill: #FF7518; filter: drop-shadow(0 0 6px #FF7518); }
+            20%      { fill: #FF4500; filter: drop-shadow(0 0 3px #FF4500); }
+            45%      { fill: #FFA500; filter: drop-shadow(0 0 9px #FFA500); }
+            70%      { fill: #FF7518; filter: drop-shadow(0 0 5px #FF7518); }
+        }
+
+        /* --- Christmas Elements --- */
+        #snow-canvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 46;
+        }
+
+        .c-flake {
+            position: absolute;
+            color: #00F5A0;
+            filter: drop-shadow(0 0 8px rgba(0, 245, 160, 0.6));
+            animation: snowflake-spin 9s linear infinite;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        .c-flake-1 { top: 90px; left: 35px; width: 32px; height: 32px; }
+        .c-flake-2 { top: 120px; right: 45px; width: 26px; height: 26px; animation-duration: 12s; animation-direction: reverse; color: #FF2253; filter: drop-shadow(0 0 8px rgba(255, 34, 83, 0.6)); }
+
+        @keyframes snowflake-spin {
+            0%   { transform: rotate(0deg) translateY(0); }
+            50%  { transform: rotate(180deg) translateY(-8px); }
+            100% { transform: rotate(360deg) translateY(0); }
+        }
+
+        /* Bot holiday charms */
+        .bot-santa-hat {
+            display: none;
+            position: absolute;
+            top: -14px;
+            right: 4px;
+            width: 30px;
+            height: 24px;
+            pointer-events: none;
+            z-index: 105;
+            filter: drop-shadow(0 0 6px rgba(255, 34, 83, 0.7));
+            animation: hat-bob 3s ease-in-out infinite;
+        }
+        [data-season="christmas"] .bot-santa-hat { display: block; }
+        @keyframes hat-bob {
+            0%, 100% { transform: rotate(0deg); }
+            50%      { transform: rotate(-5deg) translateY(-2px); }
+        }
+
+        .bot-halloween-charm {
+            display: none;
+            position: absolute;
+            top: -12px;
+            left: -8px;
+            width: 28px;
+            height: 20px;
+            pointer-events: none;
+            z-index: 105;
+            filter: drop-shadow(0 0 6px rgba(255, 117, 24, 0.75));
+            animation: bat-flap 2.2s ease-in-out infinite alternate;
+        }
+        [data-season="halloween"] .bot-halloween-charm { display: block; }
+        @keyframes bat-flap {
+            0%   { transform: rotate(-8deg) scale(1); }
+            100% { transform: rotate(6deg) scale(1.08); }
+        }
+
+        /* Scrolled navbar state (class-based for flawless theme reactivity) */
+        .navbar.scrolled {
+            background: var(--nav-bg-solid) !important;
+            box-shadow: var(--nav-shadow), inset 0 1px 0 rgba(255,255,255,0.08) !important;
+        }
+        [data-theme="light"] .navbar.scrolled {
+            box-shadow: var(--nav-shadow), inset 0 1px 0 rgba(255,255,255,0.95) !important;
+        }
+
         html { scroll-behavior: smooth; }
 
         body {
@@ -1649,6 +1996,95 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
 
     <!-- ===================================================
+         SEASONAL DECORATIONS (Halloween & Christmas)
+    =================================================== -->
+    <div id="seasonal-decorations" aria-hidden="true">
+        <!-- Halloween Layer -->
+        <div class="decor-halloween">
+            <!-- Corner Spiderweb Left -->
+            <svg class="h-web h-web-left" viewBox="0 0 120 120" fill="none">
+                <path d="M0,0 L120,0 M0,0 L105,55 M0,0 L85,85 M0,0 L55,105 M0,0 L0,120" stroke="currentColor" stroke-width="1.4" opacity="0.6"/>
+                <path d="M30,0 Q30,30 0,30 M60,0 Q60,60 0,60 M90,0 Q90,90 0,90 M115,0 Q115,115 0,115" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.5"/>
+                <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
+            </svg>
+
+            <!-- Corner Spiderweb Right -->
+            <svg class="h-web h-web-right" viewBox="0 0 120 120" fill="none">
+                <path d="M120,0 L0,0 M120,0 L15,55 M120,0 L35,85 M120,0 L65,105 M120,0 L120,120" stroke="currentColor" stroke-width="1.4" opacity="0.6"/>
+                <path d="M90,0 Q90,30 120,30 M60,0 Q60,60 120,60 M30,0 Q30,90 120,90 M5,0 Q5,115 120,115" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.5"/>
+                <circle cx="112" cy="8" r="1.5" fill="currentColor"/>
+            </svg>
+
+            <!-- Hanging Animated Spider -->
+            <div class="h-spider-hang">
+                <div class="h-thread"></div>
+                <svg class="h-spider" viewBox="0 0 40 40" fill="none">
+                    <path d="M15,18 Q8,12 5,16 M25,18 Q32,12 35,16 M14,21 Q6,20 4,25 M26,21 Q34,20 36,25 M14,24 Q7,28 6,33 M26,24 Q33,28 34,33 M15,26 Q9,33 11,38 M25,26 Q31,33 29,38" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <ellipse cx="20" cy="18" rx="4.2" ry="3.8" fill="#130910" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="20" cy="25" r="5.6" fill="#130910" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="18.5" cy="17.5" r="1" fill="#FF7518"/>
+                    <circle cx="21.5" cy="17.5" r="1" fill="#FF7518"/>
+                </svg>
+            </div>
+
+            <!-- Floating Neon Ghost 1 (Left) -->
+            <div class="h-ghost h-ghost-1">
+                <svg viewBox="0 0 60 70" fill="none">
+                    <path d="M30 6 C16 6 12 18 12 30 C12 44 10 52 14 58 C18 64 22 56 26 60 C30 64 34 56 38 60 C42 64 46 56 50 58 C54 52 48 44 48 30 C48 18 44 6 30 6 Z" fill="rgba(255,117,24,0.08)" stroke="currentColor" stroke-width="2"/>
+                    <ellipse cx="23" cy="28" rx="2.5" ry="3.8" fill="currentColor"/>
+                    <ellipse cx="37" cy="28" rx="2.5" ry="3.8" fill="currentColor"/>
+                    <ellipse cx="30" cy="39" rx="2.2" ry="3.2" fill="currentColor"/>
+                </svg>
+            </div>
+
+            <!-- Floating Neon Ghost 2 (Right) -->
+            <div class="h-ghost h-ghost-2">
+                <svg viewBox="0 0 52 62" fill="none">
+                    <path d="M26 5 C14 5 10 16 10 26 C10 38 8 45 12 50 C15 55 18 48 21 52 C25 56 28 49 32 53 C36 56 39 49 43 51 C46 45 42 38 42 26 C42 16 38 5 26 5 Z" fill="rgba(179,78,255,0.08)" stroke="#B34EFF" stroke-width="2"/>
+                    <ellipse cx="20" cy="24" rx="2.2" ry="3.4" fill="#B34EFF"/>
+                    <ellipse cx="32" cy="24" rx="2.2" ry="3.4" fill="#B34EFF"/>
+                    <ellipse cx="26" cy="34" rx="2" ry="2.8" fill="#B34EFF"/>
+                </svg>
+            </div>
+
+            <!-- Glowing Carved Jack-o'-Lantern Pumpkin -->
+            <div class="h-pumpkin" title="Happy Halloween!">
+                <svg viewBox="0 0 54 48" fill="none">
+                    <path d="M27,10 Q30,2 34,4" stroke="#00F5A0" stroke-width="2.6" stroke-linecap="round"/>
+                    <ellipse cx="27" cy="28" rx="22" ry="16" fill="#180b08" stroke="currentColor" stroke-width="2"/>
+                    <ellipse cx="27" cy="28" rx="13" ry="16" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+                    <polygon points="19,22 15,28 23,28" fill="currentColor" class="pumpkin-glow"/>
+                    <polygon points="35,22 31,28 39,28" fill="currentColor" class="pumpkin-glow"/>
+                    <polygon points="27,29 25,32 29,32" fill="currentColor" class="pumpkin-glow"/>
+                    <path d="M17,35 L21,38 L24,36 L27,39 L30,36 L33,38 L37,35 Q27,43 17,35 Z" fill="currentColor" class="pumpkin-glow"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Christmas Layer -->
+        <div class="decor-christmas">
+            <canvas id="snow-canvas"></canvas>
+            <div class="c-flake c-flake-1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <line x1="12" y1="2" x2="12" y2="22"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                    <line x1="4.93" y1="19.07" x2="19.07" y2="4.93"/>
+                    <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+            </div>
+            <div class="c-flake c-flake-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <line x1="12" y1="2" x2="12" y2="22"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                    <line x1="4.93" y1="19.07" x2="19.07" y2="4.93"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================
          NAVBAR
     =================================================== -->
     <header>
@@ -1664,6 +2100,12 @@
         </ul>
 
         <div class="nav-right">
+            <!-- Seasonal Theme Switcher -->
+            <button type="button" class="btn-season" id="btn-season" aria-label="Switch seasonal theme" title="Cycle seasonal theme: Auto (Date) → 🎃 Halloween → 🎄 Christmas → ⚡ Default">
+                <span class="season-btn-icon" id="season-btn-icon">⚡</span>
+                <span class="season-btn-text" id="season-btn-text">Season</span>
+            </button>
+
             <label class="theme-switch" aria-label="Toggle dark/light mode">
                 <input type="checkbox" id="theme-toggle" />
                 <span class="slider">
@@ -2458,6 +2900,22 @@
          CHATBOT UI
     =================================================== -->
     <button id="chat-btn" aria-label="Open AI Assistant">
+        <!-- Seasonal Bot Charms -->
+        <div class="bot-santa-hat" aria-hidden="true">
+            <svg viewBox="0 0 32 26" fill="none">
+                <path d="M5 20 Q16 4 27 13 Q29 15 27 19 Z" fill="#FF2253" stroke="#FF6888" stroke-width="1.2"/>
+                <rect x="3" y="18" width="26" height="6" rx="3" fill="#ffffff" stroke="rgba(255,255,255,0.8)" stroke-width="0.8"/>
+                <circle cx="28" cy="14" r="3.6" fill="#ffffff" stroke="rgba(255,255,255,0.8)" stroke-width="0.8"/>
+            </svg>
+        </div>
+        <div class="bot-halloween-charm" aria-hidden="true">
+            <svg viewBox="0 0 28 20" fill="none">
+                <!-- Mini Bat Charm -->
+                <path d="M14,9 Q9,2 3,5 Q2,13 9,12 Q11,15 14,12 Q17,15 19,12 Q26,13 25,5 Q19,2 14,9 Z" fill="#140910" stroke="#FF7518" stroke-width="1.2"/>
+                <circle cx="12" cy="9" r="0.9" fill="#FF7518"/>
+                <circle cx="16" cy="9" r="0.9" fill="#FF7518"/>
+            </svg>
+        </div>
         <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
             <!-- Antenna with signal dot -->
             <line x1="20" y1="1" x2="20" y2="6" stroke="#B34EFF" stroke-width="1.5" stroke-linecap="round"/>
@@ -2608,21 +3066,10 @@
         /* ── Navbar shadow on scroll ── */
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.navbar');
-            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
             if (window.scrollY > 10) {
-                nav.style.boxShadow = isLight
-                    ? '0 4px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.9)'
-                    : '0 4px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(179,78,255,0.08)';
-                nav.style.background = isLight
-                    ? 'rgba(255,255,255,0.96)'
-                    : 'rgba(5,10,5,0.92)';
+                nav.classList.add('scrolled');
             } else {
-                nav.style.boxShadow = isLight
-                    ? '0 4px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)'
-                    : '0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(179,78,255,0.06)';
-                nav.style.background = isLight
-                    ? 'rgba(255,255,255,0.92)'
-                    : 'rgba(5,10,5,0.82)';
+                nav.classList.remove('scrolled');
             }
         });
 
@@ -2887,6 +3334,187 @@
                 localStorage.setItem('theme', 'dark');
             }
         });
+
+        /* =========================================================
+           SEASONAL THEMES (Date & Preview Switcher Engine)
+        ========================================================= */
+        const seasonBtn     = document.getElementById('btn-season');
+        const seasonBtnIcon = document.getElementById('season-btn-icon');
+        const seasonBtnText = document.getElementById('season-btn-text');
+
+        // Check calendar date automatically
+        function getSeasonFromDate() {
+            const now = new Date();
+            const month = now.getMonth() + 1; // 1-12
+            const day = now.getDate();
+
+            // Halloween: Oct 29 - Nov 3
+            if ((month === 10 && day >= 29) || (month === 11 && day <= 3)) {
+                return 'halloween';
+            }
+
+            // Christmas: Dec 1 - Jan 2
+            if (month === 12 || (month === 1 && day <= 2)) {
+                return 'christmas';
+            }
+
+            return 'default';
+        }
+
+        // Get initial mode from URL param or localStorage or auto
+        function getInitialSeasonMode() {
+            const params = new URLSearchParams(window.location.search);
+            const param = params.get('season');
+            if (param && ['halloween', 'christmas', 'default', 'auto'].includes(param.toLowerCase())) {
+                return param.toLowerCase();
+            }
+
+            const stored = localStorage.getItem('portfolio_season_mode');
+            if (stored && ['halloween', 'christmas', 'default', 'auto'].includes(stored)) {
+                return stored;
+            }
+
+            return 'auto';
+        }
+
+        let currentSeasonMode = getInitialSeasonMode();
+
+        /* ── Snow Canvas Engine for Christmas ── */
+        let snowAnimationId = null;
+        let snowCanvas = null;
+        let snowCtx = null;
+        let snowFlakes = [];
+
+        function initSnow() {
+            snowCanvas = document.getElementById('snow-canvas');
+            if (!snowCanvas) return;
+            snowCtx = snowCanvas.getContext('2d');
+            resizeSnow();
+            window.addEventListener('resize', resizeSnow);
+
+            snowFlakes = [];
+            const count = window.innerWidth < 768 ? 30 : 60;
+            for (let i = 0; i < count; i++) {
+                snowFlakes.push({
+                    x: Math.random() * snowCanvas.width,
+                    y: Math.random() * snowCanvas.height,
+                    r: Math.random() * 2.4 + 0.8,
+                    d: Math.random() * 1.3 + 0.6,
+                    sway: Math.random() * Math.PI * 2,
+                    swaySpeed: Math.random() * 0.02 + 0.008,
+                    opacity: Math.random() * 0.6 + 0.35
+                });
+            }
+        }
+
+        function resizeSnow() {
+            if (!snowCanvas) return;
+            snowCanvas.width = window.innerWidth;
+            snowCanvas.height = window.innerHeight;
+        }
+
+        function renderSnow() {
+            if (!snowCtx || !snowCanvas) return;
+            snowCtx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
+
+            for (let i = 0; i < snowFlakes.length; i++) {
+                const f = snowFlakes[i];
+                f.sway += f.swaySpeed;
+                f.y += f.d;
+                f.x += Math.sin(f.sway) * 0.65;
+
+                if (f.y > snowCanvas.height + 6) {
+                    f.y = -6;
+                    f.x = Math.random() * snowCanvas.width;
+                }
+                if (f.x > snowCanvas.width + 6) f.x = -6;
+                if (f.x < -6) f.x = snowCanvas.width + 6;
+
+                snowCtx.beginPath();
+                snowCtx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+                snowCtx.fillStyle = `rgba(240, 248, 255, ${f.opacity})`;
+                snowCtx.shadowBlur = 6;
+                snowCtx.shadowColor = 'rgba(0, 245, 160, 0.4)';
+                snowCtx.fill();
+            }
+            snowAnimationId = requestAnimationFrame(renderSnow);
+        }
+
+        function startSnow() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (!snowCanvas) initSnow();
+            if (!snowAnimationId) {
+                renderSnow();
+            }
+        }
+
+        function stopSnow() {
+            if (snowAnimationId) {
+                cancelAnimationFrame(snowAnimationId);
+                snowAnimationId = null;
+            }
+            if (snowCtx && snowCanvas) {
+                snowCtx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
+            }
+        }
+
+        function applySeason(mode) {
+            let active = mode;
+            if (mode === 'auto') {
+                active = getSeasonFromDate();
+            }
+
+            if (active === 'halloween') {
+                htmlEl.setAttribute('data-season', 'halloween');
+                if (seasonBtnIcon) seasonBtnIcon.textContent = '🎃';
+                if (seasonBtnText) seasonBtnText.textContent = mode === 'auto' ? 'Auto: Spooky' : 'Halloween';
+                stopSnow();
+            } else if (active === 'christmas') {
+                htmlEl.setAttribute('data-season', 'christmas');
+                if (seasonBtnIcon) seasonBtnIcon.textContent = '🎄';
+                if (seasonBtnText) seasonBtnText.textContent = mode === 'auto' ? 'Auto: Festive' : 'Christmas';
+                startSnow();
+            } else {
+                htmlEl.removeAttribute('data-season');
+                if (seasonBtnIcon) seasonBtnIcon.textContent = '⚡';
+                if (seasonBtnText) seasonBtnText.textContent = mode === 'auto' ? 'Auto: Normal' : 'Default';
+                stopSnow();
+            }
+
+            if (navbar) {
+                navbar.style.boxShadow = '';
+                navbar.style.background = '';
+            }
+        }
+
+        // Initialize seasonal theme on load
+        applySeason(currentSeasonMode);
+
+        // Click to cycle seasonal themes: Auto -> Halloween -> Christmas -> Default -> Auto
+        if (seasonBtn) {
+            seasonBtn.addEventListener('click', () => {
+                const sequence = ['auto', 'halloween', 'christmas', 'default'];
+                const nextIdx = (sequence.indexOf(currentSeasonMode) + 1) % sequence.length;
+                currentSeasonMode = sequence[nextIdx];
+
+                if (currentSeasonMode === 'auto') {
+                    localStorage.removeItem('portfolio_season_mode');
+                } else {
+                    localStorage.setItem('portfolio_season_mode', currentSeasonMode);
+                }
+
+                // Update URL query parameter without page reload
+                const url = new URL(window.location);
+                if (currentSeasonMode === 'auto') {
+                    url.searchParams.delete('season');
+                } else {
+                    url.searchParams.set('season', currentSeasonMode);
+                }
+                window.history.replaceState({}, '', url);
+
+                applySeason(currentSeasonMode);
+            });
+        }
 
     </script>
 
