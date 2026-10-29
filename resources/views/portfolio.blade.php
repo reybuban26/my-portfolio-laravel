@@ -740,7 +740,7 @@
         /* --- Christmas Enhanced Elements (Santa Sleigh, Tree, Baubles) --- */
         .c-santa-sleigh {
             position: fixed;
-            top: 55px;
+            top: 105px;
             left: -320px;
             width: 270px;
             height: 60px;
@@ -752,16 +752,24 @@
 
         @keyframes santa-flight {
             0% {
-                transform: translate3d(0, 0, 0) rotate(-4deg);
+                transform: translate3d(0, 0, 0) rotate(-3deg);
                 opacity: 0;
             }
             5%  { opacity: 0.95; }
-            30% { transform: translate3d(35vw, -15px, 0) rotate(2deg); }
-            60% { transform: translate3d(70vw, 12px, 0) rotate(-3deg); }
+            30% { transform: translate3d(35vw, 15px, 0) rotate(2deg); }
+            60% { transform: translate3d(70vw, 5px, 0) rotate(-2deg); }
             92% { opacity: 0.95; }
             100% {
-                transform: translate3d(calc(100vw + 340px), -10px, 0) rotate(4deg);
+                transform: translate3d(calc(100vw + 340px), 18px, 0) rotate(3deg);
                 opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .c-santa-sleigh {
+                top: 85px;
+                transform: scale(0.75);
+                transform-origin: top left;
             }
         }
 
