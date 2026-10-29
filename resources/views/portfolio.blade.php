@@ -2945,7 +2945,7 @@
             <li><a href="#experience" id="nav-experience">Experience</a></li>
             <li><a href="#skills"     id="nav-skills">Skills</a></li>
             <li><a href="#projects"   id="nav-projects">Projects</a></li>
-            <li><a href="{{ url('/download-cv') }}" download="Rey_Buban_Curriculum_Vitae.pdf" id="nav-cv-mobile" class="nav-cv-link">Curriculum Vitae (PDF)</a></li>
+            <li><a href="/download-cv" download="Rey_Buban_Curriculum_Vitae.pdf" id="nav-cv-mobile" class="nav-cv-link">Curriculum Vitae (PDF)</a></li>
         </ul>
 
         <div class="nav-right">
@@ -2986,7 +2986,7 @@
                     </div>
                 </span>
             </label>
-            <a href="{{ url('/download-cv') }}" class="btn-resume" id="btn-resume" download="Rey_Buban_Curriculum_Vitae.pdf" aria-label="Download Curriculum Vitae (PDF)" title="Download Curriculum Vitae (PDF)">
+            <a href="/download-cv" class="btn-resume" id="btn-resume" download="Rey_Buban_Curriculum_Vitae.pdf" aria-label="Download Curriculum Vitae (PDF)" title="Download Curriculum Vitae (PDF)">
                 Curriculum Vitae
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2"
                      stroke-linecap="round" stroke-linejoin="round"
