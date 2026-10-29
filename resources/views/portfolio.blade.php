@@ -293,6 +293,114 @@
             --nav-bg-solid:   rgba(242, 247, 253, 0.98);
         }
 
+        /* --- 3. NEW YEAR THEME (Dec 29 - Jan 2) --- */
+        [data-season="newyear"] {
+            --neon:           #FFD700;
+            --neon-soft:      #FFE266;
+            --neon-dim:       rgba(255, 215, 0, 0.08);
+            --border:         rgba(255, 215, 0, 0.24);
+            --neon-glow:      0 0 10px rgba(255, 215, 0, 0.65), 0 0 30px rgba(0, 240, 255, 0.25);
+            --neon-text-glow: 0 0 12px rgba(255, 215, 0, 0.9), 0 0 36px rgba(0, 240, 255, 0.35);
+            --neon-shadow:    0 4px 24px rgba(255, 215, 0, 0.18);
+            --bg:             #070603;
+            --bg-deep:        #040301;
+            --bg-light:       #130f05;
+            --bg-card:        #100c04;
+            --white:          #fffdf8;
+            --off-white:      #e5dbc3;
+            --muted:          #998d73;
+            --nav-bg:         rgba(7, 6, 3, 0.88);
+            --nav-bg-solid:   rgba(7, 6, 3, 0.98);
+        }
+
+        [data-season="newyear"] #about::after {
+            background-image: radial-gradient(circle, rgba(255, 215, 0, 0.09) 1px, transparent 1px);
+        }
+        [data-season="newyear"] .hero-ambient-1 {
+            background: rgba(255, 215, 0, 0.14);
+        }
+        [data-season="newyear"] .hero-ambient-2 {
+            background: rgba(0, 240, 255, 0.12);
+        }
+        [data-season="newyear"] #line-v1 { stroke: #00F0FF; }
+        [data-season="newyear"] #line-v2 { stroke: #FFD700; }
+        [data-season="newyear"] .hero-portrait {
+            border-color: #FFD700;
+            box-shadow: 0 0 18px rgba(255, 215, 0, 0.7);
+        }
+
+        /* New Year Light Theme */
+        [data-season="newyear"][data-theme="light"] {
+            --bg:             #fcf9f2;
+            --bg-deep:        #f3ede0;
+            --bg-light:       #fffdf8;
+            --bg-card:        #ffffff;
+            --white:          #1f1807;
+            --off-white:      #453818;
+            --muted:          #85734e;
+            --border:         rgba(184, 134, 11, 0.28);
+            --neon:           #B8860B;
+            --neon-soft:      #d4af37;
+            --neon-glow:      0 0 8px rgba(184, 134, 11, 0.35), 0 0 20px rgba(0, 190, 210, 0.15);
+            --neon-text-glow: 0 0 6px rgba(184, 134, 11, 0.35);
+            --nav-bg:         rgba(255, 252, 246, 0.94);
+            --nav-bg-solid:   rgba(252, 249, 242, 0.98);
+        }
+
+        /* --- 4. VALENTINE'S DAY THEME (Feb 10 - Feb 14) --- */
+        [data-season="valentine"] {
+            --neon:           #FF1493;
+            --neon-soft:      #FF69B4;
+            --neon-dim:       rgba(255, 20, 147, 0.08);
+            --border:         rgba(255, 20, 147, 0.22);
+            --neon-glow:      0 0 10px rgba(255, 20, 147, 0.65), 0 0 30px rgba(255, 105, 180, 0.25);
+            --neon-text-glow: 0 0 12px rgba(255, 20, 147, 0.9), 0 0 36px rgba(255, 105, 180, 0.35);
+            --neon-shadow:    0 4px 24px rgba(255, 20, 147, 0.18);
+            --bg:             #0b0409;
+            --bg-deep:        #060205;
+            --bg-light:       #150611;
+            --bg-card:        #140510;
+            --white:          #fff0f6;
+            --off-white:      #e5c4d4;
+            --muted:          #996981;
+            --nav-bg:         rgba(11, 4, 9, 0.86);
+            --nav-bg-solid:   rgba(11, 4, 9, 0.98);
+        }
+
+        [data-season="valentine"] #about::after {
+            background-image: radial-gradient(circle, rgba(255, 20, 147, 0.09) 1px, transparent 1px);
+        }
+        [data-season="valentine"] .hero-ambient-1 {
+            background: rgba(255, 20, 147, 0.14);
+        }
+        [data-season="valentine"] .hero-ambient-2 {
+            background: rgba(255, 105, 180, 0.12);
+        }
+        [data-season="valentine"] #line-v1 { stroke: #FF69B4; }
+        [data-season="valentine"] #line-v2 { stroke: #FF1493; }
+        [data-season="valentine"] .hero-portrait {
+            border-color: #FF1493;
+            box-shadow: 0 0 18px rgba(255, 20, 147, 0.7);
+        }
+
+        /* Valentine Light Theme */
+        [data-season="valentine"][data-theme="light"] {
+            --bg:             #fef4f8;
+            --bg-deep:        #f9e3ee;
+            --bg-light:       #fff9fc;
+            --bg-card:        #ffffff;
+            --white:          #240716;
+            --off-white:      #4d1b35;
+            --muted:          #8f4b6d;
+            --border:         rgba(217, 18, 126, 0.25);
+            --neon:           #D9127E;
+            --neon-soft:      #ff3f9e;
+            --neon-glow:      0 0 8px rgba(217, 18, 126, 0.35), 0 0 20px rgba(255, 105, 180, 0.15);
+            --neon-text-glow: 0 0 6px rgba(217, 18, 126, 0.35);
+            --nav-bg:         rgba(255, 248, 252, 0.92);
+            --nav-bg-solid:   rgba(254, 244, 248, 0.98);
+        }
+
         /* --- Seasonal UI Switcher Button in Navbar --- */
         .btn-season {
             display: inline-flex;
@@ -343,7 +451,7 @@
             overflow: hidden;
         }
 
-        .decor-halloween, .decor-christmas {
+        .decor-halloween, .decor-christmas, .decor-newyear, .decor-valentine {
             display: none;
             width: 100%;
             height: 100%;
@@ -353,6 +461,8 @@
 
         [data-season="halloween"] .decor-halloween { display: block; }
         [data-season="christmas"] .decor-christmas { display: block; }
+        [data-season="newyear"] .decor-newyear { display: block; }
+        [data-season="valentine"] .decor-valentine { display: block; }
 
         /* --- Halloween Elements --- */
         .h-web {
@@ -517,6 +627,378 @@
         @keyframes bat-flap {
             0%   { transform: rotate(-8deg) scale(1); }
             100% { transform: rotate(6deg) scale(1.08); }
+        }
+
+        /* --- Casper-style Full Screen Flying Ghosts --- */
+        .h-casper-ghost {
+            position: fixed;
+            pointer-events: none;
+            z-index: 47;
+            filter: drop-shadow(0 0 16px rgba(255, 117, 24, 0.85));
+        }
+        .h-casper-1 {
+            width: 82px;
+            height: 92px;
+            color: #FF7518;
+            animation: casper-flight-1 20s ease-in-out infinite;
+        }
+        .h-casper-2 {
+            width: 68px;
+            height: 76px;
+            color: #b34eff;
+            filter: drop-shadow(0 0 16px rgba(179, 78, 255, 0.85));
+            animation: casper-flight-2 24s ease-in-out infinite 7s;
+        }
+
+        @keyframes casper-flight-1 {
+            0% {
+                transform: translate3d(-120px, 35vh, 0) scale(0.85) rotate(15deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.95; }
+            35% {
+                transform: translate3d(35vw, 15vh, 0) scale(1.05) rotate(-10deg);
+            }
+            65% {
+                transform: translate3d(65vw, 55vh, 0) scale(0.95) rotate(14deg);
+            }
+            90% { opacity: 0.9; }
+            100% {
+                transform: translate3d(calc(100vw + 120px), 25vh, 0) scale(1) rotate(-15deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes casper-flight-2 {
+            0% {
+                transform: translate3d(calc(100vw + 120px), 70vh, 0) scale(0.8) rotate(-15deg) scaleX(-1);
+                opacity: 0;
+            }
+            12% { opacity: 0.9; }
+            45% {
+                transform: translate3d(60vw, 30vh, 0) scale(1) rotate(10deg) scaleX(-1);
+            }
+            75% {
+                transform: translate3d(25vw, 65vh, 0) scale(0.9) rotate(-8deg) scaleX(-1);
+            }
+            92% { opacity: 0.85; }
+            100% {
+                transform: translate3d(-120px, 40vh, 0) scale(0.85) rotate(12deg) scaleX(-1);
+                opacity: 0;
+            }
+        }
+
+        /* Flying Bats Flock */
+        .h-bat-flock {
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            height: 140px;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .h-bat {
+            position: absolute;
+            color: #FF7518;
+            filter: drop-shadow(0 0 8px rgba(255, 117, 24, 0.8));
+            animation: bat-cross 16s linear infinite;
+        }
+        .h-bat-1 { top: 20px; width: 34px; height: 20px; animation-duration: 15s; }
+        .h-bat-2 { top: 65px; width: 26px; height: 16px; animation-duration: 18s; animation-delay: 4.5s; }
+        .h-bat-3 { top: 40px; width: 22px; height: 14px; animation-duration: 13s; animation-delay: 8s; }
+
+        @keyframes bat-cross {
+            0% { transform: translate3d(-60px, 0, 0) scale(0.8); opacity: 0; }
+            10% { opacity: 0.9; }
+            50% { transform: translate3d(50vw, -20px, 0) scale(1); }
+            90% { opacity: 0.9; }
+            100% { transform: translate3d(calc(100vw + 60px), 15px, 0) scale(0.85); opacity: 0; }
+        }
+
+        /* Second pumpkin & tombstone */
+        .h-pumpkin-2 {
+            position: absolute;
+            bottom: 30px;
+            right: 120px;
+            width: 44px;
+            height: 40px;
+            color: #FF7518;
+            filter: drop-shadow(0 0 10px rgba(255, 117, 24, 0.6));
+            animation: pumpkin-hover 3.6s ease-in-out infinite alternate 1s;
+        }
+        .h-tombstone {
+            position: absolute;
+            bottom: 25px;
+            left: 95px;
+            width: 42px;
+            height: 48px;
+            color: #b34eff;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 8px rgba(179, 78, 255, 0.5));
+        }
+
+        /* --- Christmas Enhanced Elements (Santa Sleigh, Tree, Baubles) --- */
+        .c-santa-sleigh {
+            position: fixed;
+            top: 55px;
+            left: -320px;
+            width: 270px;
+            height: 60px;
+            pointer-events: none;
+            z-index: 48;
+            filter: drop-shadow(0 0 14px rgba(255, 34, 83, 0.85));
+            animation: santa-flight 24s linear infinite;
+        }
+
+        @keyframes santa-flight {
+            0% {
+                transform: translate3d(0, 0, 0) rotate(-4deg);
+                opacity: 0;
+            }
+            5%  { opacity: 0.95; }
+            30% { transform: translate3d(35vw, -15px, 0) rotate(2deg); }
+            60% { transform: translate3d(70vw, 12px, 0) rotate(-3deg); }
+            92% { opacity: 0.95; }
+            100% {
+                transform: translate3d(calc(100vw + 340px), -10px, 0) rotate(4deg);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing Neon Decorated Christmas Tree */
+        .c-christmas-tree {
+            position: absolute;
+            bottom: 25px;
+            left: 28px;
+            width: 78px;
+            height: 110px;
+            pointer-events: none;
+            filter: drop-shadow(0 0 14px rgba(0, 245, 160, 0.75));
+            animation: tree-gentle-glow 4s ease-in-out infinite alternate;
+        }
+        @keyframes tree-gentle-glow {
+            0%   { filter: drop-shadow(0 0 10px rgba(0, 245, 160, 0.6)); }
+            100% { filter: drop-shadow(0 0 18px rgba(0, 245, 160, 0.95)); }
+        }
+
+        .c-tree-light-1 { animation: fairy-blink-1 1.6s infinite; }
+        .c-tree-light-2 { animation: fairy-blink-2 1.9s infinite 0.4s; }
+        .c-tree-light-3 { animation: fairy-blink-3 2.1s infinite 0.8s; }
+        @keyframes fairy-blink-1 {
+            0%, 100% { fill: #FF2253; filter: drop-shadow(0 0 6px #FF2253); }
+            50%      { fill: #FFD700; filter: drop-shadow(0 0 8px #FFD700); }
+        }
+        @keyframes fairy-blink-2 {
+            0%, 100% { fill: #00F5A0; filter: drop-shadow(0 0 6px #00F5A0); }
+            50%      { fill: #00D2FF; filter: drop-shadow(0 0 8px #00D2FF); }
+        }
+        @keyframes fairy-blink-3 {
+            0%, 100% { fill: #FFD700; filter: drop-shadow(0 0 8px #FFD700); }
+            50%      { fill: #FF2253; filter: drop-shadow(0 0 6px #FF2253); }
+        }
+
+        /* Hanging Christmas Baubles & Candy Canes */
+        .c-hanging-ornaments {
+            position: absolute;
+            top: 0;
+            left: 22%;
+            display: flex;
+            gap: 75px;
+            pointer-events: none;
+        }
+        .c-bauble-hang {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: ornament-sway 4.5s ease-in-out infinite;
+            transform-origin: top center;
+        }
+        .c-bauble-hang:nth-child(2) { animation-duration: 5.4s; animation-delay: 1.2s; }
+        .c-bauble-hang:nth-child(3) { animation-duration: 4.8s; animation-delay: 0.6s; }
+        @keyframes ornament-sway {
+            0%, 100% { transform: rotate(0deg); }
+            33%      { transform: rotate(7deg); }
+            66%      { transform: rotate(-7deg); }
+        }
+
+        /* --- New Year Fireworks, Toast & Disco Ball --- */
+        #fireworks-canvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 46;
+        }
+
+        .ny-sparkle {
+            position: absolute;
+            color: #FFD700;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.85));
+            animation: ny-twinkle 3s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        .ny-sparkle-1 { top: 90px; right: 55px; width: 34px; height: 34px; }
+        .ny-sparkle-2 { top: 120px; left: 40px; width: 28px; height: 28px; color: #00F0FF; animation-delay: 1.2s; filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.85)); }
+
+        @keyframes ny-twinkle {
+            0%   { transform: scale(0.8) rotate(0deg); opacity: 0.5; }
+            50%  { transform: scale(1.2) rotate(90deg); opacity: 1; }
+            100% { transform: scale(0.85) rotate(180deg); opacity: 0.6; }
+        }
+
+        .ny-champagne {
+            position: absolute;
+            bottom: 25px;
+            left: 35px;
+            width: 68px;
+            height: 64px;
+            pointer-events: none;
+            filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.85));
+            animation: toast-clink 3.2s ease-in-out infinite;
+        }
+        @keyframes toast-clink {
+            0%, 80%, 100% { transform: rotate(0deg); }
+            40%           { transform: rotate(-6deg); }
+            50%           { transform: rotate(5deg) scale(1.06); }
+        }
+
+        .ny-disco-hang {
+            position: absolute;
+            top: 0;
+            left: 18%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+        }
+        .ny-disco-ball {
+            width: 44px;
+            height: 44px;
+            color: #FFD700;
+            filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.95));
+            animation: disco-spin 6.5s linear infinite;
+        }
+        @keyframes disco-spin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .bot-party-hat {
+            display: none;
+            position: absolute;
+            top: -16px;
+            right: 4px;
+            width: 32px;
+            height: 28px;
+            pointer-events: none;
+            z-index: 105;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+            animation: party-bob 2.5s ease-in-out infinite;
+        }
+        [data-season="newyear"] .bot-party-hat { display: block; }
+        @keyframes party-bob {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            50%      { transform: rotate(-8deg) translateY(-3px); }
+        }
+
+        /* --- Valentine's Day Flying Cupid, Rose, Love Letter --- */
+        #hearts-canvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 46;
+        }
+
+        .val-cupid-fly {
+            position: fixed;
+            top: 95px;
+            left: -140px;
+            width: 86px;
+            height: 74px;
+            pointer-events: none;
+            z-index: 47;
+            filter: drop-shadow(0 0 16px rgba(255, 20, 147, 0.9));
+            animation: cupid-soar 22s ease-in-out infinite;
+        }
+        @keyframes cupid-soar {
+            0% {
+                transform: translate3d(0, 0, 0) rotate(8deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.95; }
+            35% { transform: translate3d(35vw, 45px, 0) rotate(-6deg); }
+            65% { transform: translate3d(70vw, -25px, 0) rotate(6deg); }
+            90% { opacity: 0.95; }
+            100% {
+                transform: translate3d(calc(100vw + 160px), 25px, 0) rotate(-4deg);
+                opacity: 0;
+            }
+        }
+
+        .val-letter {
+            position: absolute;
+            top: 135px;
+            right: 35px;
+            width: 52px;
+            height: 42px;
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.85));
+            animation: letter-hover 4.2s ease-in-out infinite alternate;
+        }
+        @keyframes letter-hover {
+            0%   { transform: translateY(0) rotate(-5deg); }
+            100% { transform: translateY(-12px) rotate(6deg); }
+        }
+
+        .val-rose {
+            position: absolute;
+            bottom: 25px;
+            left: 32px;
+            width: 54px;
+            height: 72px;
+            pointer-events: none;
+            filter: drop-shadow(0 0 14px rgba(255, 20, 147, 0.85));
+            animation: rose-pulse 3.2s ease-in-out infinite alternate;
+        }
+        @keyframes rose-pulse {
+            0%   { filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.7)); }
+            100% { filter: drop-shadow(0 0 18px rgba(255, 20, 147, 1)); }
+        }
+
+        .val-heart {
+            position: absolute;
+            color: #FF1493;
+            filter: drop-shadow(0 0 12px rgba(255, 20, 147, 0.75));
+            animation: heart-pulse 2.2s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        .val-heart-1 { top: 90px; left: 45px; width: 34px; height: 34px; }
+        .val-heart-2 { top: 115px; right: 50px; width: 28px; height: 28px; color: #FF69B4; animation-delay: 0.8s; }
+
+        @keyframes heart-pulse {
+            0%   { transform: scale(0.9) rotate(-4deg); opacity: 0.7; }
+            100% { transform: scale(1.18) rotate(6deg); opacity: 1; filter: drop-shadow(0 0 16px rgba(255, 20, 147, 0.95)); }
+        }
+
+        .bot-valentine-heart {
+            display: none;
+            position: absolute;
+            top: -15px;
+            right: 4px;
+            width: 28px;
+            height: 24px;
+            pointer-events: none;
+            z-index: 105;
+            filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.85));
+            animation: cupid-flutter 1.8s ease-in-out infinite alternate;
+        }
+        [data-season="valentine"] .bot-valentine-heart { display: block; }
+        @keyframes cupid-flutter {
+            0%   { transform: translateY(0) scale(0.95); }
+            100% { transform: translateY(-4px) scale(1.12); }
         }
 
         /* Scrolled navbar state (class-based for flawless theme reactivity) */
@@ -2027,6 +2509,45 @@
                 </svg>
             </div>
 
+            <!-- Casper-style Full Screen Flying Ghosts -->
+            <div class="h-casper-ghost h-casper-1">
+                <svg viewBox="0 0 70 80" fill="none">
+                    <path d="M35,6 C18,6 12,20 12,34 C12,48 8,56 12,65 C16,72 22,64 27,68 C32,72 37,64 42,68 C47,72 52,65 56,66 C62,58 58,48 58,34 C58,20 52,6 35,6 Z" fill="rgba(255,117,24,0.12)" stroke="#FF7518" stroke-width="2.2"/>
+                    <ellipse cx="27" cy="30" rx="3.5" ry="5" fill="#FF7518"/>
+                    <ellipse cx="43" cy="30" rx="3.5" ry="5" fill="#FF7518"/>
+                    <circle cx="28" cy="28.5" r="1.2" fill="#ffffff"/>
+                    <circle cx="44" cy="28.5" r="1.2" fill="#ffffff"/>
+                    <path d="M30,42 Q35,48 40,42" stroke="#FF7518" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    <path d="M12,36 Q4,30 6,24" stroke="#FF7518" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    <path d="M58,36 Q66,30 64,24" stroke="#FF7518" stroke-width="2" stroke-linecap="round" fill="none"/>
+                </svg>
+            </div>
+            <div class="h-casper-ghost h-casper-2">
+                <svg viewBox="0 0 65 75" fill="none">
+                    <path d="M32,6 C16,6 10,18 10,32 C10,46 6,52 10,60 C14,66 20,58 24,62 C29,66 34,58 39,62 C44,66 48,60 52,61 C57,54 54,46 54,32 C54,18 48,6 32,6 Z" fill="rgba(179,78,255,0.12)" stroke="#B34EFF" stroke-width="2.2"/>
+                    <ellipse cx="25" cy="28" rx="3.2" ry="4.5" fill="#B34EFF"/>
+                    <ellipse cx="39" cy="28" rx="3.2" ry="4.5" fill="#B34EFF"/>
+                    <circle cx="26" cy="26.8" r="1" fill="#ffffff"/>
+                    <circle cx="40" cy="26.8" r="1" fill="#ffffff"/>
+                    <path d="M28,39 Q32,44 36,39" stroke="#B34EFF" stroke-width="2" stroke-linecap="round" fill="none"/>
+                </svg>
+            </div>
+
+            <!-- Flying Bats Flock across sky -->
+            <div class="h-bat-flock">
+                <svg class="h-bat h-bat-1" viewBox="0 0 34 20" fill="none">
+                    <path d="M17,10 Q12,2 4,5 Q2,14 10,13 Q13,16 17,13 Q21,16 24,13 Q32,14 30,5 Q22,2 17,10 Z" fill="#130910" stroke="#FF7518" stroke-width="1.4"/>
+                    <circle cx="15" cy="10" r="1" fill="#FF7518"/>
+                    <circle cx="19" cy="10" r="1" fill="#FF7518"/>
+                </svg>
+                <svg class="h-bat h-bat-2" viewBox="0 0 34 20" fill="none">
+                    <path d="M17,10 Q12,2 4,5 Q2,14 10,13 Q13,16 17,13 Q21,16 24,13 Q32,14 30,5 Q22,2 17,10 Z" fill="#130910" stroke="#FF7518" stroke-width="1.4"/>
+                </svg>
+                <svg class="h-bat h-bat-3" viewBox="0 0 34 20" fill="none">
+                    <path d="M17,10 Q12,2 4,5 Q2,14 10,13 Q13,16 17,13 Q21,16 24,13 Q32,14 30,5 Q22,2 17,10 Z" fill="#130910" stroke="#FF7518" stroke-width="1.4"/>
+                </svg>
+            </div>
+
             <!-- Floating Neon Ghost 1 (Left) -->
             <div class="h-ghost h-ghost-1">
                 <svg viewBox="0 0 60 70" fill="none">
@@ -2059,11 +2580,111 @@
                     <path d="M17,35 L21,38 L24,36 L27,39 L30,36 L33,38 L37,35 Q27,43 17,35 Z" fill="currentColor" class="pumpkin-glow"/>
                 </svg>
             </div>
+
+            <!-- Second Laughing Pumpkin & Spooky Tombstone -->
+            <div class="h-pumpkin-2" title="Spooky vibes!">
+                <svg viewBox="0 0 54 48" fill="none">
+                    <path d="M27,10 Q24,2 20,4" stroke="#00F5A0" stroke-width="2.6" stroke-linecap="round"/>
+                    <ellipse cx="27" cy="28" rx="22" ry="16" fill="#180b08" stroke="#FF7518" stroke-width="2"/>
+                    <path d="M17,23 L23,23 L20,28 Z" fill="#FF7518" class="pumpkin-glow"/>
+                    <path d="M31,23 L37,23 L34,28 Z" fill="#FF7518" class="pumpkin-glow"/>
+                    <path d="M18,34 Q27,42 36,34 Q27,37 18,34 Z" fill="#FF7518" class="pumpkin-glow"/>
+                </svg>
+            </div>
+            <div class="h-tombstone">
+                <svg viewBox="0 0 42 50" fill="none">
+                    <path d="M4,48 L4,18 Q4,4 21,4 Q38,4 38,18 L38,48 Z" fill="#120914" stroke="#B34EFF" stroke-width="1.8"/>
+                    <text x="21" y="26" text-anchor="middle" font-size="9" font-family="monospace" font-weight="700" fill="#B34EFF" letter-spacing="1">RIP</text>
+                    <line x1="12" y1="34" x2="30" y2="34" stroke="#B34EFF" stroke-width="1.2" opacity="0.6"/>
+                    <line x1="21" y1="31" x2="21" y2="40" stroke="#B34EFF" stroke-width="1.2" opacity="0.6"/>
+                </svg>
+            </div>
         </div>
 
         <!-- Christmas Layer -->
         <div class="decor-christmas">
             <canvas id="snow-canvas"></canvas>
+
+            <!-- Flying Santa with Reindeer Sleigh across the sky -->
+            <div class="c-santa-sleigh" title="Merry Christmas!">
+                <svg viewBox="0 0 270 60" fill="none">
+                    <!-- Reindeer 1 -->
+                    <g transform="translate(180, 10)">
+                        <path d="M38,6 L42,1 M40,4 L44,4 M38,6 L35,1" stroke="#FFD700" stroke-width="1.2" stroke-linecap="round"/>
+                        <ellipse cx="36" cy="11" rx="5" ry="3.5" fill="#08121f" stroke="#00F5A0" stroke-width="1.2"/>
+                        <circle cx="41" cy="12" r="1.2" fill="#FF2253"/>
+                        <ellipse cx="24" cy="17" rx="9" ry="5.5" fill="#08121f" stroke="#00F5A0" stroke-width="1.2"/>
+                        <path d="M28,22 L32,32 M22,22 L17,31 M30,21 L35,30 M19,21 L14,29" stroke="#00F5A0" stroke-width="1.2" stroke-linecap="round"/>
+                    </g>
+                    <!-- Reindeer 2 -->
+                    <g transform="translate(110, 12)">
+                        <path d="M38,6 L42,1 M40,4 L44,4 M38,6 L35,1" stroke="#FFD700" stroke-width="1.2" stroke-linecap="round"/>
+                        <ellipse cx="36" cy="11" rx="5" ry="3.5" fill="#08121f" stroke="#00F5A0" stroke-width="1.2"/>
+                        <circle cx="41" cy="12" r="1" fill="#FFD700"/>
+                        <ellipse cx="24" cy="17" rx="9" ry="5.5" fill="#08121f" stroke="#00F5A0" stroke-width="1.2"/>
+                        <path d="M28,22 L32,32 M22,22 L17,31 M30,21 L35,30 M19,21 L14,29" stroke="#00F5A0" stroke-width="1.2" stroke-linecap="round"/>
+                    </g>
+                    <path d="M68,26 Q110,18 145,24 Q180,18 215,22" stroke="#FFD700" stroke-width="1" stroke-dasharray="3,2" opacity="0.8"/>
+                    <!-- Santa Sleigh -->
+                    <g transform="translate(10, 8)">
+                        <path d="M5,42 Q28,45 62,42 Q70,41 72,36" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M8,36 Q22,38 60,36 Q66,35 68,26 Q52,28 32,24 Q18,22 10,34 Z" fill="#071321" stroke="#FF2253" stroke-width="2"/>
+                        <ellipse cx="38" cy="20" rx="7" ry="6" fill="#FF2253" stroke="#FF6888" stroke-width="1.2"/>
+                        <circle cx="38" cy="12" r="4.5" fill="#ffffff" stroke="#FF2253" stroke-width="1"/>
+                        <path d="M34,10 Q38,2 45,7 Z" fill="#FF2253"/>
+                        <circle cx="45" cy="7" r="1.5" fill="#ffffff"/>
+                        <ellipse cx="22" cy="26" rx="8" ry="7" fill="#00F5A0" stroke="#FFD700" stroke-width="1.2"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Glowing Neon Decorated Christmas Tree -->
+            <div class="c-christmas-tree" title="O Christmas Tree!">
+                <svg viewBox="0 0 78 110" fill="none">
+                    <polygon points="39,2 41.5,8 48,8.5 43,13 44.5,19 39,15.5 33.5,19 35,13 30,8.5 36.5,8" fill="#FFD700" stroke="#FFE266" stroke-width="1"/>
+                    <path d="M39,18 L51,34 L44,34 L57,52 L49,52 L64,74 L14,74 L29,52 L21,52 L34,34 L27,34 Z" fill="#07171d" stroke="#00F5A0" stroke-width="2"/>
+                    <path d="M39,22 L47,33 L41,33 L52,49 L46,49 L58,70 L20,70 L32,49 L26,49 L37,33 L31,33 Z" stroke="#00D2FF" stroke-width="1" opacity="0.4"/>
+                    <circle cx="34" cy="28" r="2.2" class="c-tree-light-1"/>
+                    <circle cx="44" cy="32" r="2.2" class="c-tree-light-2"/>
+                    <circle cx="30" cy="44" r="2.2" class="c-tree-light-3"/>
+                    <circle cx="48" cy="46" r="2.2" class="c-tree-light-1"/>
+                    <circle cx="38" cy="42" r="2.2" class="c-tree-light-2"/>
+                    <circle cx="26" cy="62" r="2.5" class="c-tree-light-2"/>
+                    <circle cx="39" cy="58" r="2.5" class="c-tree-light-3"/>
+                    <circle cx="52" cy="64" r="2.5" class="c-tree-light-1"/>
+                    <rect x="35" y="74" width="8" height="12" fill="#2d1d12" stroke="#FFD700" stroke-width="1"/>
+                    <g transform="translate(16, 82)">
+                        <rect x="0" y="4" width="16" height="14" rx="2" fill="#FF2253" stroke="#FFD700" stroke-width="1"/>
+                        <line x1="8" y1="4" x2="8" y2="18" stroke="#FFD700" stroke-width="1.2"/>
+                        <line x1="0" y1="11" x2="16" y2="11" stroke="#FFD700" stroke-width="1.2"/>
+                    </g>
+                    <g transform="translate(42, 80)">
+                        <rect x="0" y="4" width="18" height="16" rx="2" fill="#00F5A0" stroke="#FF2253" stroke-width="1"/>
+                        <line x1="9" y1="4" x2="9" y2="20" stroke="#FF2253" stroke-width="1.2"/>
+                        <line x1="0" y1="12" x2="18" y2="12" stroke="#FF2253" stroke-width="1.2"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Hanging Baubles & Candy Cane -->
+            <div class="c-hanging-ornaments">
+                <div class="c-bauble-hang">
+                    <line x1="12" y1="0" x2="12" y2="40" stroke="rgba(255,34,83,0.7)" stroke-width="1"/>
+                    <circle cx="12" cy="48" r="8" fill="#071321" stroke="#FF2253" stroke-width="1.6"/>
+                    <circle cx="10" cy="46" r="2" fill="#ffffff" opacity="0.6"/>
+                </div>
+                <div class="c-bauble-hang">
+                    <line x1="10" y1="0" x2="10" y2="60" stroke="rgba(0,245,160,0.7)" stroke-width="1"/>
+                    <path d="M10,60 L10,80 Q10,92 18,92 Q26,92 26,82" stroke="#ffffff" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                    <path d="M10,60 L10,80 Q10,92 18,92 Q26,92 26,82" stroke="#FF2253" stroke-width="3.5" fill="none" stroke-dasharray="4,4" stroke-linecap="round"/>
+                </div>
+                <div class="c-bauble-hang">
+                    <line x1="12" y1="0" x2="12" y2="48" stroke="rgba(255,215,0,0.7)" stroke-width="1"/>
+                    <circle cx="12" cy="56" r="7.5" fill="#071321" stroke="#FFD700" stroke-width="1.6"/>
+                    <circle cx="10" cy="54" r="1.8" fill="#ffffff" opacity="0.6"/>
+                </div>
+            </div>
+
             <div class="c-flake c-flake-1">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                     <line x1="12" y1="2" x2="12" y2="22"/>
@@ -2079,6 +2700,109 @@
                     <line x1="2" y1="12" x2="22" y2="12"/>
                     <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
                     <line x1="4.93" y1="19.07" x2="19.07" y2="4.93"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- New Year Layer -->
+        <div class="decor-newyear">
+            <canvas id="fireworks-canvas"></canvas>
+
+            <!-- Clinking Neon Champagne Flutes -->
+            <div class="ny-champagne" title="Cheers to the New Year!">
+                <svg viewBox="0 0 68 64" fill="none">
+                    <g transform="translate(10, 10) rotate(-14)">
+                        <path d="M6,2 L14,2 L12,18 Q10,24 10,32 L6,32 L6,2 Z" fill="rgba(255,215,0,0.15)" stroke="#FFD700" stroke-width="1.4"/>
+                        <line x1="8" y1="32" x2="8" y2="48" stroke="#FFD700" stroke-width="1.4"/>
+                        <line x1="3" y1="48" x2="13" y2="48" stroke="#FFD700" stroke-width="1.8" stroke-linecap="round"/>
+                        <circle cx="9" cy="12" r="1" fill="#00F0FF"/>
+                        <circle cx="7" cy="18" r="1.2" fill="#00F0FF"/>
+                    </g>
+                    <g transform="translate(42, 8) rotate(14)">
+                        <path d="M6,2 L14,2 L12,18 Q10,24 10,32 L6,32 L6,2 Z" fill="rgba(255,215,0,0.15)" stroke="#FFD700" stroke-width="1.4"/>
+                        <line x1="8" y1="32" x2="8" y2="48" stroke="#FFD700" stroke-width="1.4"/>
+                        <line x1="3" y1="48" x2="13" y2="48" stroke="#FFD700" stroke-width="1.8" stroke-linecap="round"/>
+                        <circle cx="8" cy="14" r="1.1" fill="#00F0FF"/>
+                        <circle cx="10" cy="20" r="0.9" fill="#00F0FF"/>
+                    </g>
+                    <circle cx="34" cy="16" r="2.5" fill="#ffffff" filter="drop-shadow(0 0 6px #FFD700)"/>
+                    <line x1="34" y1="9" x2="34" y2="23" stroke="#FFD700" stroke-width="1"/>
+                    <line x1="27" y1="16" x2="41" y2="16" stroke="#FFD700" stroke-width="1"/>
+                </svg>
+            </div>
+
+            <!-- Hanging Mirrored Neon Disco Ball -->
+            <div class="ny-disco-hang">
+                <line x1="22" y1="0" x2="22" y2="35" stroke="rgba(255,215,0,0.6)" stroke-width="1"/>
+                <svg class="ny-disco-ball" viewBox="0 0 44 44" fill="none">
+                    <circle cx="22" cy="22" r="18" fill="#120e05" stroke="#FFD700" stroke-width="2"/>
+                    <ellipse cx="22" cy="22" rx="10" ry="18" stroke="#00F0FF" stroke-width="0.8" opacity="0.7"/>
+                    <ellipse cx="22" cy="22" rx="18" ry="10" stroke="#00F0FF" stroke-width="0.8" opacity="0.7"/>
+                    <line x1="4" y1="22" x2="40" y2="22" stroke="#FFD700" stroke-width="0.8"/>
+                    <line x1="22" y1="4" x2="22" y2="40" stroke="#FFD700" stroke-width="0.8"/>
+                </svg>
+            </div>
+
+            <div class="ny-sparkle ny-sparkle-1">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                </svg>
+            </div>
+            <div class="ny-sparkle ny-sparkle-2">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Valentine's Day Layer -->
+        <div class="decor-valentine">
+            <canvas id="hearts-canvas"></canvas>
+
+            <!-- Flying Cupid Angel across the screen -->
+            <div class="val-cupid-fly" title="Love is in the air!">
+                <svg viewBox="0 0 86 74" fill="none">
+                    <path d="M30,32 Q14,14 18,4 Q28,6 34,22" fill="rgba(255,105,180,0.2)" stroke="#FF69B4" stroke-width="1.6"/>
+                    <path d="M48,32 Q64,14 60,4 Q50,6 44,22" fill="rgba(255,105,180,0.2)" stroke="#FF69B4" stroke-width="1.6"/>
+                    <ellipse cx="39" cy="38" rx="8" ry="10" fill="#150611" stroke="#FF1493" stroke-width="1.8"/>
+                    <circle cx="39" cy="24" r="7" fill="#150611" stroke="#FF1493" stroke-width="1.8"/>
+                    <path d="M52,22 Q62,34 52,46" stroke="#FFD700" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <line x1="38" y1="34" x2="62" y2="34" stroke="#FF69B4" stroke-width="1.6"/>
+                    <path d="M66,34 L62,31 L63,34 L62,37 Z" fill="#FF1493"/>
+                </svg>
+            </div>
+
+            <!-- Fluttering Love Letter Envelope with Wings -->
+            <div class="val-letter" title="You've got love!">
+                <svg viewBox="0 0 52 42" fill="none">
+                    <path d="M12,18 Q2,10 6,4 Q12,6 14,14" fill="rgba(255,105,180,0.25)" stroke="#FF69B4" stroke-width="1.2"/>
+                    <path d="M40,18 Q50,10 46,4 Q40,6 38,14" fill="rgba(255,105,180,0.25)" stroke="#FF69B4" stroke-width="1.2"/>
+                    <rect x="10" y="14" width="32" height="22" rx="3" fill="#150611" stroke="#FF1493" stroke-width="1.6"/>
+                    <polyline points="10,14 26,27 42,14" stroke="#FF1493" stroke-width="1.4"/>
+                    <path d="M26,29 C24.5,27.5 22,27.5 22,29 C22,30.5 26,33 26,33 C26,33 30,30.5 30,29 C30,27.5 27.5,27.5 26,29 Z" fill="#FF1493"/>
+                </svg>
+            </div>
+
+            <!-- Glowing Neon Blooming Rose -->
+            <div class="val-rose" title="A rose for you">
+                <svg viewBox="0 0 54 72" fill="none">
+                    <path d="M27,38 Q29,54 26,68" stroke="#00F5A0" stroke-width="2.2" stroke-linecap="round"/>
+                    <path d="M28,48 Q38,44 39,52 Q32,56 28,52" fill="rgba(0,245,160,0.2)" stroke="#00F5A0" stroke-width="1.4"/>
+                    <path d="M27,56 Q17,52 16,60 Q23,64 27,60" fill="rgba(0,245,160,0.2)" stroke="#00F5A0" stroke-width="1.4"/>
+                    <path d="M27,12 Q20,12 18,22 Q16,34 27,38 Q38,34 36,22 Q34,12 27,12 Z" fill="#1a0410" stroke="#FF1493" stroke-width="2"/>
+                    <path d="M27,16 Q23,16 22,24 Q24,32 27,33 Q30,32 32,24 Q31,16 27,16 Z" stroke="#FF69B4" stroke-width="1.4" fill="none"/>
+                    <path d="M27,20 Q25,20 25,25 Q26,29 27,29 Q28,29 29,25 Q29,20 27,20 Z" fill="#FF1493"/>
+                </svg>
+            </div>
+
+            <div class="val-heart val-heart-1">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="val-heart val-heart-2">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
             </div>
         </div>
@@ -2916,6 +3640,22 @@
                 <circle cx="16" cy="9" r="0.9" fill="#FF7518"/>
             </svg>
         </div>
+        <div class="bot-party-hat" aria-hidden="true">
+            <svg viewBox="0 0 32 28" fill="none">
+                <path d="M16 2 L5 24 L27 24 Z" fill="#181204" stroke="#FFD700" stroke-width="1.4"/>
+                <path d="M12 11 L7 21" stroke="#00F0FF" stroke-width="1.2"/>
+                <path d="M20 11 L25 21" stroke="#00F0FF" stroke-width="1.2"/>
+                <circle cx="16" cy="2" r="3" fill="#FFD700" stroke="#FFE266" stroke-width="0.8"/>
+                <line x1="3" y1="24" x2="29" y2="24" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="bot-valentine-heart" aria-hidden="true">
+            <svg viewBox="0 0 28 24" fill="none">
+                <path d="M8,13 Q1,8 3,3 Q8,5 9,10" stroke="#FF69B4" stroke-width="1.2" fill="rgba(255,105,180,0.15)"/>
+                <path d="M20,13 Q27,8 25,3 Q20,5 19,10" stroke="#FF69B4" stroke-width="1.2" fill="rgba(255,105,180,0.15)"/>
+                <path d="M14 20 L12.8 18.9 C7 13.6 3.5 10.4 3.5 6.5 C3.5 3.4 5.9 1 9 1 C10.8 1 12.5 1.8 14 3.2 C15.5 1.8 17.2 1 19 1 C22.1 1 24.5 3.4 24.5 6.5 C24.5 10.4 21 13.6 15.2 18.9 Z" fill="#FF1493" stroke="#FF69B4" stroke-width="1.2"/>
+            </svg>
+        </div>
         <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
             <!-- Antenna with signal dot -->
             <line x1="20" y1="1" x2="20" y2="6" stroke="#B34EFF" stroke-width="1.5" stroke-linecap="round"/>
@@ -3348,14 +4088,24 @@
             const month = now.getMonth() + 1; // 1-12
             const day = now.getDate();
 
-            // Halloween: Oct 29 - Nov 3
+            // 1. Halloween: Oct 29 - Nov 3
             if ((month === 10 && day >= 29) || (month === 11 && day <= 3)) {
                 return 'halloween';
             }
 
-            // Christmas: Dec 1 - Jan 2
-            if (month === 12 || (month === 1 && day <= 2)) {
+            // 2. Christmas: Dec 1 - Dec 28
+            if (month === 12 && day >= 1 && day <= 28) {
                 return 'christmas';
+            }
+
+            // 3. New Year: Dec 29 - Jan 2
+            if ((month === 12 && day >= 29) || (month === 1 && day <= 2)) {
+                return 'newyear';
+            }
+
+            // 4. Valentine's Day: Feb 10 - Feb 14
+            if (month === 2 && day >= 10 && day <= 14) {
+                return 'valentine';
             }
 
             return 'default';
@@ -3363,14 +4113,15 @@
 
         // Get initial mode from URL param or localStorage or auto
         function getInitialSeasonMode() {
+            const valid = ['halloween', 'christmas', 'newyear', 'valentine', 'default', 'auto'];
             const params = new URLSearchParams(window.location.search);
             const param = params.get('season');
-            if (param && ['halloween', 'christmas', 'default', 'auto'].includes(param.toLowerCase())) {
+            if (param && valid.includes(param.toLowerCase())) {
                 return param.toLowerCase();
             }
 
             const stored = localStorage.getItem('portfolio_season_mode');
-            if (stored && ['halloween', 'christmas', 'default', 'auto'].includes(stored)) {
+            if (stored && valid.includes(stored)) {
                 return stored;
             }
 
@@ -3458,27 +4209,266 @@
             }
         }
 
+        /* ── Fireworks Engine for New Year ── */
+        let fwAnimationId = null;
+        let fwCanvas = null;
+        let fwCtx = null;
+        let fwParticles = [];
+        let lastFwLaunch = 0;
+
+        function initFireworks() {
+            fwCanvas = document.getElementById('fireworks-canvas');
+            if (!fwCanvas) return;
+            fwCtx = fwCanvas.getContext('2d');
+            resizeFireworks();
+            window.addEventListener('resize', resizeFireworks);
+            fwParticles = [];
+        }
+
+        function resizeFireworks() {
+            if (!fwCanvas) return;
+            fwCanvas.width = window.innerWidth;
+            fwCanvas.height = window.innerHeight;
+        }
+
+        function createBurst(x, y) {
+            const colors = ['#FFD700', '#FFE266', '#00F0FF', '#FF2453', '#FFFFFF'];
+            const count = window.innerWidth < 768 ? 22 : 36;
+            const baseColor = colors[Math.floor(Math.random() * colors.length)];
+            for (let i = 0; i < count; i++) {
+                const angle = (Math.PI * 2 / count) * i + Math.random() * 0.2;
+                const speed = Math.random() * 3.4 + 1.2;
+                fwParticles.push({
+                    x: x,
+                    y: y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    r: Math.random() * 2 + 1,
+                    alpha: 1,
+                    color: Math.random() > 0.3 ? baseColor : colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+
+            // Celebratory drifting confetti ribbons
+            const confettiColors = ['#FFD700', '#00F0FF', '#FF2453', '#00F5A0', '#FF69B4', '#FFFFFF'];
+            for (let j = 0; j < 8; j++) {
+                fwParticles.push({
+                    x: x + (Math.random() * 40 - 20),
+                    y: y + (Math.random() * 40 - 20),
+                    vx: (Math.random() - 0.5) * 2,
+                    vy: Math.random() * 1.4 + 0.6,
+                    isRibbon: true,
+                    w: Math.random() * 8 + 4,
+                    h: Math.random() * 3.5 + 2,
+                    rot: Math.random() * Math.PI,
+                    rotSpeed: (Math.random() - 0.5) * 0.08,
+                    alpha: 1,
+                    color: confettiColors[Math.floor(Math.random() * confettiColors.length)]
+                });
+            }
+        }
+
+        function renderFireworks(timestamp) {
+            if (!fwCtx || !fwCanvas) return;
+            fwCtx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
+
+            if (timestamp - lastFwLaunch > 1200) {
+                const bx = Math.random() * (fwCanvas.width * 0.8) + (fwCanvas.width * 0.1);
+                const by = Math.random() * (fwCanvas.height * 0.45) + 60;
+                createBurst(bx, by);
+                lastFwLaunch = timestamp;
+            }
+
+            for (let i = fwParticles.length - 1; i >= 0; i--) {
+                const p = fwParticles[i];
+
+                if (p.isRibbon) {
+                    p.rot += p.rotSpeed;
+                    p.y += p.vy;
+                    p.x += Math.sin(p.rot) * 0.7;
+                    p.alpha -= 0.007;
+
+                    if (p.alpha <= 0 || p.y > fwCanvas.height + 20) {
+                        fwParticles.splice(i, 1);
+                        continue;
+                    }
+
+                    fwCtx.save();
+                    fwCtx.translate(p.x, p.y);
+                    fwCtx.rotate(p.rot);
+                    fwCtx.fillStyle = p.color;
+                    fwCtx.globalAlpha = p.alpha;
+                    fwCtx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                    fwCtx.restore();
+                } else {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += 0.04;
+                    p.alpha -= 0.016;
+
+                    if (p.alpha <= 0) {
+                        fwParticles.splice(i, 1);
+                        continue;
+                    }
+
+                    fwCtx.beginPath();
+                    fwCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    fwCtx.globalAlpha = p.alpha;
+                    fwCtx.fillStyle = p.color;
+                    fwCtx.shadowBlur = 8;
+                    fwCtx.shadowColor = p.color;
+                    fwCtx.fill();
+                }
+            }
+            fwCtx.globalAlpha = 1;
+            fwAnimationId = requestAnimationFrame(renderFireworks);
+        }
+
+        function startFireworks() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (!fwCanvas) initFireworks();
+            if (!fwAnimationId) {
+                lastFwLaunch = performance.now();
+                fwAnimationId = requestAnimationFrame(renderFireworks);
+            }
+        }
+
+        function stopFireworks() {
+            if (fwAnimationId) {
+                cancelAnimationFrame(fwAnimationId);
+                fwAnimationId = null;
+            }
+            fwParticles = [];
+            if (fwCtx && fwCanvas) {
+                fwCtx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
+            }
+        }
+
+        /* ── Floating Hearts Engine for Valentine's Day ── */
+        let heartAnimationId = null;
+        let heartCanvas = null;
+        let heartCtx = null;
+        let heartParticles = [];
+
+        function initHearts() {
+            heartCanvas = document.getElementById('hearts-canvas');
+            if (!heartCanvas) return;
+            heartCtx = heartCanvas.getContext('2d');
+            resizeHearts();
+            window.addEventListener('resize', resizeHearts);
+
+            heartParticles = [];
+            const count = window.innerWidth < 768 ? 16 : 28;
+            for (let i = 0; i < count; i++) {
+                heartParticles.push({
+                    x: Math.random() * heartCanvas.width,
+                    y: Math.random() * heartCanvas.height,
+                    size: Math.random() * 12 + 8,
+                    speed: Math.random() * 0.8 + 0.4,
+                    sway: Math.random() * Math.PI * 2,
+                    swaySpeed: Math.random() * 0.02 + 0.008,
+                    alpha: Math.random() * 0.5 + 0.35,
+                    color: Math.random() > 0.4 ? '#FF1493' : '#FF69B4'
+                });
+            }
+        }
+
+        function resizeHearts() {
+            if (!heartCanvas) return;
+            heartCanvas.width = window.innerWidth;
+            heartCanvas.height = window.innerHeight;
+        }
+
+        function drawHeart(ctx, x, y, size) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.beginPath();
+            const top = size * 0.3;
+            ctx.moveTo(0, top);
+            ctx.bezierCurveTo(-size / 2, -top, -size, size / 3, 0, size);
+            ctx.bezierCurveTo(size, size / 3, size / 2, -top, 0, top);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function renderHearts() {
+            if (!heartCtx || !heartCanvas) return;
+            heartCtx.clearRect(0, 0, heartCanvas.width, heartCanvas.height);
+
+            for (let i = 0; i < heartParticles.length; i++) {
+                const h = heartParticles[i];
+                h.sway += h.swaySpeed;
+                h.y -= h.speed;
+                h.x += Math.sin(h.sway) * 0.6;
+
+                if (h.y < -30) {
+                    h.y = heartCanvas.height + 20;
+                    h.x = Math.random() * heartCanvas.width;
+                }
+
+                heartCtx.fillStyle = h.color;
+                heartCtx.globalAlpha = h.alpha;
+                heartCtx.shadowBlur = 10;
+                heartCtx.shadowColor = 'rgba(255, 20, 147, 0.6)';
+                drawHeart(heartCtx, h.x, h.y, h.size);
+            }
+            heartCtx.globalAlpha = 1;
+            heartAnimationId = requestAnimationFrame(renderHearts);
+        }
+
+        function startHearts() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (!heartCanvas) initHearts();
+            if (!heartAnimationId) {
+                renderHearts();
+            }
+        }
+
+        function stopHearts() {
+            if (heartAnimationId) {
+                cancelAnimationFrame(heartAnimationId);
+                heartAnimationId = null;
+            }
+            if (heartCtx && heartCanvas) {
+                heartCtx.clearRect(0, 0, heartCanvas.width, heartCanvas.height);
+            }
+        }
+
         function applySeason(mode) {
             let active = mode;
             if (mode === 'auto') {
                 active = getSeasonFromDate();
             }
 
+            // Reset animation engines
+            stopSnow();
+            stopFireworks();
+            stopHearts();
+
             if (active === 'halloween') {
                 htmlEl.setAttribute('data-season', 'halloween');
                 if (seasonBtnIcon) seasonBtnIcon.textContent = '🎃';
                 if (seasonBtnText) seasonBtnText.textContent = mode === 'auto' ? 'Auto: Spooky' : 'Halloween';
-                stopSnow();
             } else if (active === 'christmas') {
                 htmlEl.setAttribute('data-season', 'christmas');
                 if (seasonBtnIcon) seasonBtnIcon.textContent = '🎄';
                 if (seasonBtnText) seasonBtnText.textContent = mode === 'auto' ? 'Auto: Festive' : 'Christmas';
                 startSnow();
+            } else if (active === 'newyear') {
+                htmlEl.setAttribute('data-season', 'newyear');
+                if (seasonBtnIcon) seasonBtnIcon.textContent = '🎆';
+                if (seasonBtnText) seasonBtnText.textContent = mode === 'auto' ? 'Auto: New Year' : 'New Year';
+                startFireworks();
+            } else if (active === 'valentine') {
+                htmlEl.setAttribute('data-season', 'valentine');
+                if (seasonBtnIcon) seasonBtnIcon.textContent = '💖';
+                if (seasonBtnText) seasonBtnText.textContent = mode === 'auto' ? 'Auto: Valentine' : 'Valentine';
+                startHearts();
             } else {
                 htmlEl.removeAttribute('data-season');
                 if (seasonBtnIcon) seasonBtnIcon.textContent = '⚡';
                 if (seasonBtnText) seasonBtnText.textContent = mode === 'auto' ? 'Auto: Normal' : 'Default';
-                stopSnow();
             }
 
             if (navbar) {
@@ -3490,10 +4480,10 @@
         // Initialize seasonal theme on load
         applySeason(currentSeasonMode);
 
-        // Click to cycle seasonal themes: Auto -> Halloween -> Christmas -> Default -> Auto
+        // Click to cycle seasonal themes: Auto -> Halloween -> Christmas -> New Year -> Valentine -> Default -> Auto
         if (seasonBtn) {
             seasonBtn.addEventListener('click', () => {
-                const sequence = ['auto', 'halloween', 'christmas', 'default'];
+                const sequence = ['auto', 'halloween', 'christmas', 'newyear', 'valentine', 'default'];
                 const nextIdx = (sequence.indexOf(currentSeasonMode) + 1) % sequence.length;
                 currentSeasonMode = sequence[nextIdx];
 
